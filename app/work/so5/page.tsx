@@ -76,7 +76,7 @@ function PillarItem({ p, i, scrollProgress }: { p: any; i: number; scrollProgres
         borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
         paddingLeft: i > 0 ? "2rem" : 0
       }}
-      className="pr-8"
+      className={`pr-8${i > 0 ? " so5-border-l" : ""}`}
     >
       <span
         className="block mb-3 uppercase"
@@ -133,9 +133,9 @@ export default function SO5Case() {
 
       {/* ── HERO ── */}
       <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="grid grid-cols-12 gap-8 items-end">
+        <div className="so5-hero-grid grid grid-cols-12 gap-8 items-end">
           <motion.div
-            className="col-span-8"
+            className="so5-col-8 col-span-8"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0, 0, 1] }}
@@ -171,7 +171,7 @@ export default function SO5Case() {
           </motion.div>
 
           <motion.div
-            className="col-span-4 flex flex-col gap-5"
+            className="so5-col-4 col-span-4 flex flex-col gap-5"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.6 }}
@@ -234,9 +234,9 @@ export default function SO5Case() {
 
       {/* ── PROBLEM ── */}
       <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="grid grid-cols-12 gap-12 mb-16">
+        <div className="so5-hero-grid grid grid-cols-12 gap-12 mb-16">
           <motion.div
-            className="col-span-5"
+            className="so5-col-5 col-span-5"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -260,7 +260,7 @@ export default function SO5Case() {
             </p>
           </motion.div>
 
-          <div className="col-span-7">
+          <div className="so5-col-7 col-span-7">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -275,10 +275,10 @@ export default function SO5Case() {
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-12">
-          <div className="col-span-5" />
+        <div className="so5-hero-grid grid grid-cols-12 gap-12">
+          <div className="so5-col-5 col-span-5 hidden md:block" />
           <motion.div
-            className="col-span-7"
+            className="so5-col-7 col-span-7"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -326,7 +326,7 @@ export default function SO5Case() {
         >
           Working Within the Real World
         </span>
-        <div className="grid grid-cols-3 gap-0">
+        <div className="so5-pillars grid grid-cols-3 gap-0">
           {[
             { label: "Legacy Tech Debt", detail: "Incremental redesign required — couldn't break existing production flows." },
             { label: "Expert User Base", detail: "High resistance to change from seasoned users with entrenched muscle memory." },
@@ -334,7 +334,7 @@ export default function SO5Case() {
           ].map((c, i) => (
             <motion.div
               key={c.label}
-              className="pr-10"
+              className={`pr-10${i > 0 ? " so5-border-l" : ""}`}
               style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "2.5rem" : 0 }}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -401,7 +401,7 @@ export default function SO5Case() {
         >
           Approach — 5 Design Pillars
         </span>
-        <div className="grid grid-cols-5 gap-0">
+        <div className="so5-pillars grid grid-cols-5 gap-0">
           {pillars.map((p, i) => (
             <PillarItem
               key={p.num}
@@ -426,14 +426,14 @@ export default function SO5Case() {
           {screens.map((s, i) => (
             <motion.div
               key={s.title}
-              className={`grid grid-cols-12 gap-12 items-center ${i % 2 === 1 ? "direction-rtl" : ""}`}
+              className={`so5-hero-grid grid grid-cols-12 gap-12 items-center ${i % 2 === 1 ? "direction-rtl" : ""}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.25, 0, 0, 1] }}
             >
               <div
-                className={`col-span-8 overflow-hidden ${i % 2 === 1 ? "col-start-5 order-2" : "order-1"}`}
+                className={`so5-col-8 col-span-8 overflow-hidden ${i % 2 === 1 ? "col-start-5 md:order-2 order-1" : "order-1"}`}
                 style={{ border: "1px solid rgba(255,255,255,0.08)" }}
               >
                 {i === 0 ? (
@@ -463,7 +463,7 @@ export default function SO5Case() {
                 )}
               </div>
 
-              <div className={`col-span-4 ${i % 2 === 1 ? "col-start-1 order-1" : "order-2"}`}>
+              <div className={`so5-col-4 col-span-4 ${i % 2 === 1 ? "col-start-1 md:order-1 order-2" : "order-2"}`}>
                 <span
                   className="block mb-2 uppercase"
                   style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: "#3DFF6E" }}
@@ -493,7 +493,7 @@ export default function SO5Case() {
         >
           Outcomes
         </span>
-        <div className="grid grid-cols-4 gap-0">
+        <div className="so5-pillars grid grid-cols-4 gap-0">
           {[
             { value: "Zero", label: "IT dependency for daily operations" },
             { value: "5 pillars", label: "delivered in a single design system" },
@@ -502,7 +502,7 @@ export default function SO5Case() {
           ].map((r, i) => (
             <motion.div
               key={r.label}
-              className="pr-10"
+              className={`pr-10${i > 0 ? " so5-border-l" : ""}`}
               style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "2.5rem" : 0 }}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}

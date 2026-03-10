@@ -476,7 +476,7 @@ export default function Footer() {
     <footer style={{ backgroundColor:"#060504", borderTop:"1px solid rgba(255,255,255,0.05)", overflow:"hidden", paddingLeft: 24, paddingRight: 24 }}>
 
       {/* CTA */}
-      <div className="flex items-center justify-between px-8 py-14"
+      <div className="footer-cta flex items-center justify-between px-8 py-14"
         style={{ borderBottom:"1px solid rgba(255,255,255,0.04)" }}>
         <div>
           <p style={{ fontFamily:"var(--font-space)", fontSize:"clamp(0.75rem, 1.2vw, 1rem)",
@@ -503,7 +503,7 @@ export default function Footer() {
         <canvas ref={canvasRef}
           style={{ position:"absolute", inset:0, zIndex:20, pointerEvents:"none" }} />
 
-        <div className="flex items-end justify-center gap-3" style={{ height:"380px" }}>
+        <div className="footer-shapes flex items-end justify-center gap-3" style={{ height:"380px" }}>
           {shapes.map((shape, i) => (
             <motion.div
               key={shape.id}
@@ -540,13 +540,13 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="flex items-center justify-between px-8 py-5"
+      <div className="footer-bottom flex items-center justify-between px-8 py-5"
         style={{ borderTop:"1px solid rgba(255,255,255,0.05)" }}>
         <span style={{ fontFamily:"var(--font-space)", fontSize:"0.55rem", letterSpacing:"0.3em",
           color:"rgba(255,255,255,0.2)", textTransform:"uppercase" }}>São Paulo, Brasil</span>
         <span style={{ fontFamily:"var(--font-space)", fontSize:"0.55rem", letterSpacing:"0.3em",
           color:"rgba(255,255,255,0.2)", textTransform:"uppercase" }}>© 2025 SA-BRINA</span>
-        <div className="flex gap-8">
+        <div className="footer-social flex gap-8">
           {["LinkedIn","Behance","Dribbble"].map(s => (
             <a key={s} href="#" style={{ fontFamily:"var(--font-space)", fontSize:"0.55rem",
               letterSpacing:"0.25em", color:"rgba(255,255,255,0.2)", textTransform:"uppercase" }}>{s}</a>

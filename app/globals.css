@@ -65,19 +65,49 @@ a, button { cursor: none; }
 
 /* ── Responsive ───────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .section-px { padding-left: 24px !important; padding-right: 24px !important; }
+  /* Padding */
+  .section-px  { padding-left: 24px !important; padding-right: 24px !important; }
   .about-main-px { padding-left: 24px !important; padding-right: 24px !important; }
-  .grid-figma { grid-template-columns: 1fr !important; }
-  .arrow-col { display: none !important; }
+  .rp-px { padding-left: 20px !important; padding-right: 20px !important; }
+
+  /* Home grids */
+  .grid-figma  { grid-template-columns: 1fr !important; }
+  .arrow-col   { display: none !important; }
   .grid-clients { grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; }
-  .grid-work { grid-template-columns: 1fr !important; }
+  .grid-work   { grid-template-columns: 1fr !important; }
+  .work-card-offset { margin-top: 0 !important; }
+
+  /* About grids */
   .grid-about-hero { grid-template-columns: 1fr !important; min-height: unset !important; }
   .about-photo-col { min-height: 400px !important; }
   .grid-values { grid-template-columns: 1fr !important; }
-  .grid-exp { grid-template-columns: 1fr !important; }
+  .grid-exp    { grid-template-columns: 1fr !important; }
   .grid-exp-header { grid-template-columns: 1fr !important; }
-  .hero-bottom-row { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; }
-  .work-card-offset { margin-top: 0 !important; }
+
+  /* Work page */
+  .work-panel-btn  { flex-direction: column !important; gap: 1rem !important; padding-top: 1.5rem !important; padding-bottom: 1.5rem !important; }
+  .work-panel-meta { flex-direction: row !important; align-items: center !important; justify-content: space-between !important; width: 100% !important; }
+  .work-panel-body { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .work-pillars    { grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+  .work-indent     { padding-left: 0 !important; }
+  .work-header-row { flex-direction: column !important; align-items: flex-start !important; gap: 0.5rem !important; }
+
+  /* SO5 grids */
+  .so5-hero-grid   { grid-template-columns: 1fr !important; }
+  .so5-col-8       { grid-column: span 1 !important; }
+  .so5-col-4       { grid-column: span 1 !important; }
+  .so5-col-5       { grid-column: span 1 !important; }
+  .so5-col-7       { grid-column: span 1 !important; }
+  .so5-col-12      { grid-template-columns: 1fr !important; }
+  .so5-pillars     { grid-template-columns: 1fr !important; }
+  .so5-screens     { grid-template-columns: 1fr !important; }
+  .so5-border-l    { border-left: none !important; padding-left: 0 !important; }
+
+  /* Footer */
+  .footer-cta    { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; padding: 2.5rem 1.5rem !important; }
+  .footer-bottom { flex-direction: column !important; gap: 1rem !important; align-items: flex-start !important; }
+  .footer-shapes { height: 200px !important; }
+  .footer-social { gap: 1.5rem !important; }
 }
 
 /* ── Vision modes ──────────────────────────────────────────────── */

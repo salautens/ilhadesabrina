@@ -89,8 +89,8 @@ export default function Work() {
   return (
     <main className="min-h-screen pt-24" style={{ backgroundColor: "#0A0908" }}>
       {/* Header */}
-      <section className="px-8 py-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="flex items-end justify-between">
+      <section className="rp-px py-12 md:py-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", paddingLeft: 32, paddingRight: 32 }}>
+        <div className="work-header-row flex items-end justify-between">
           <motion.h1
             className="font-bold uppercase"
             style={{
@@ -119,7 +119,7 @@ export default function Work() {
       </section>
 
       {/* Cases */}
-      <section className="px-8 py-0">
+      <section style={{ paddingLeft: 32, paddingRight: 32 }} className="rp-px py-0">
         {cases.map((c, i) => (
           <motion.div
             key={c.index}
@@ -134,7 +134,7 @@ export default function Work() {
             {/* Panel header */}
             <button
               onClick={() => c.slug ? undefined : setOpen(open === i ? null : i)}
-              className="w-full text-left py-10 flex items-start gap-12"
+              className="work-panel-btn w-full text-left py-10 flex items-start gap-8"
               style={{ cursor: "none" }}
             >
               <span
@@ -144,20 +144,20 @@ export default function Work() {
                 {c.index}
               </span>
 
-              <div className="flex-1">
-                <div className="flex items-baseline gap-6 mb-1">
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-baseline gap-3 md:gap-6 mb-1">
                   <h2
                     className="font-medium transition-colors duration-300"
                     style={{
                       fontFamily: "var(--font-space)",
-                      fontSize: "clamp(1.4rem, 3vw, 2.2rem)",
+                      fontSize: "clamp(1.2rem, 3vw, 2.2rem)",
                       color: open === i ? c.color : "#F2EDE8",
                     }}
                   >
                     {c.title}
                   </h2>
                   <span
-                    className="uppercase"
+                    className="uppercase hidden md:inline"
                     style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.25em", color: "#7A7570" }}
                   >
                     {c.category} · {c.client}
@@ -166,12 +166,12 @@ export default function Work() {
                 <p className="text-xs mb-3 uppercase" style={{ fontFamily: "var(--font-space)", letterSpacing: "0.2em", color: c.color, opacity: 0.8 }}>
                   {c.subtitle}
                 </p>
-                <p className="text-sm leading-relaxed max-w-xl" style={{ color: "#B8B3AE" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE", maxWidth: "36rem" }}>
                   {c.summary}
                 </p>
               </div>
 
-              <div className="flex flex-col items-end gap-3 pt-1 shrink-0">
+              <div className="work-panel-meta flex flex-col items-end gap-3 pt-1 shrink-0">
                 <span
                   className="uppercase"
                   style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}
@@ -203,9 +203,8 @@ export default function Work() {
                   transition={{ duration: 0.5, ease: [0.25, 0, 0, 1] }}
                   style={{ overflow: "hidden" }}
                 >
-                  {/* Core tension */}
                   {c.tension && (
-                    <div className="pl-20 pb-8 pr-8">
+                    <div className="work-indent pb-8 pr-4 md:pr-8" style={{ paddingLeft: "5rem" }}>
                       <div className="py-5 px-6" style={{ borderLeft: `2px solid ${c.color}`, backgroundColor: `${c.color}10` }}>
                         <span
                           className="block mb-1 uppercase"
@@ -218,89 +217,47 @@ export default function Work() {
                     </div>
                   )}
 
-                  {/* Problem / Approach / Results */}
-                  <div className="pb-10 pl-20 pr-8 grid grid-cols-3 gap-12">
+                  <div className="work-panel-body work-indent pb-10 pr-4 md:pr-8 grid grid-cols-3 gap-12" style={{ paddingLeft: "5rem" }}>
                     <div>
-                      <span
-                        className="block mb-3 uppercase"
-                        style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}
-                      >
-                        Problem
-                      </span>
+                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Problem</span>
                       <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{c.problem}</p>
                     </div>
-
                     <div>
-                      <span
-                        className="block mb-3 uppercase"
-                        style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}
-                      >
-                        Approach
-                      </span>
+                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Approach</span>
                       <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{c.approach}</p>
-
                       {c.constraints.length > 0 && (
                         <div className="mt-6 space-y-3">
                           {c.constraints.map((con) => (
                             <div key={con.label}>
-                              <span
-                                className="block uppercase"
-                                style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.25em", color: c.color }}
-                              >
-                                {con.label}
-                              </span>
+                              <span className="block uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.25em", color: c.color }}>{con.label}</span>
                               <span className="text-xs" style={{ color: "#B8B3AE" }}>{con.detail}</span>
                             </div>
                           ))}
                         </div>
                       )}
                     </div>
-
                     <div>
-                      <span
-                        className="block mb-3 uppercase"
-                        style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}
-                      >
-                        Results
-                      </span>
+                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Results</span>
                       <ul className="space-y-2">
                         {c.results.map((r, j) => (
-                          <li key={j} className="text-sm font-medium" style={{ color: c.color, fontFamily: "var(--font-space)" }}>
-                            {r}
-                          </li>
+                          <li key={j} className="text-sm font-medium" style={{ color: c.color, fontFamily: "var(--font-space)" }}>{r}</li>
                         ))}
                       </ul>
                     </div>
                   </div>
 
-                  {/* Design pillars */}
                   {c.pillars.length > 0 && (
-                    <div className="pl-20 pr-8 pb-12">
-                      <span
-                        className="block mb-6 uppercase"
-                        style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}
-                      >
-                        Design Pillars
-                      </span>
-                      <div className="grid grid-cols-4 gap-0">
+                    <div className="work-indent pr-4 md:pr-8 pb-12" style={{ paddingLeft: "5rem" }}>
+                      <span className="block mb-6 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Design Pillars</span>
+                      <div className="work-pillars grid grid-cols-4 gap-0">
                         {c.pillars.map((p, j) => (
                           <div
                             key={p.num}
-                            className="pr-8"
+                            className={`pr-8 ${j > 0 ? "so5-border-l" : ""}`}
                             style={{ borderLeft: j > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: j > 0 ? "2rem" : 0 }}
                           >
-                            <span
-                              className="block mb-2 uppercase"
-                              style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.3em", color: c.color }}
-                            >
-                              {p.num}
-                            </span>
-                            <p
-                              className="mb-2 font-medium text-sm"
-                              style={{ fontFamily: "var(--font-space)", color: "#F2EDE8" }}
-                            >
-                              {p.title}
-                            </p>
+                            <span className="block mb-2 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.3em", color: c.color }}>{p.num}</span>
+                            <p className="mb-2 font-medium text-sm" style={{ fontFamily: "var(--font-space)", color: "#F2EDE8" }}>{p.title}</p>
                             <p className="text-xs leading-relaxed" style={{ color: "#B8B3AE" }}>{p.desc}</p>
                           </div>
                         ))}
@@ -308,22 +265,9 @@ export default function Work() {
                     </div>
                   )}
 
-                  {/* Tags */}
-                  <div className="pb-10 pl-20 flex gap-3 flex-wrap">
+                  <div className="work-indent pb-10 flex gap-3 flex-wrap" style={{ paddingLeft: "5rem" }}>
                     {c.tags.map((t) => (
-                      <span
-                        key={t}
-                        className="px-3 py-1 uppercase"
-                        style={{
-                          fontFamily: "var(--font-space)",
-                          fontSize: "0.5rem",
-                          letterSpacing: "0.25em",
-                          color: c.color,
-                          border: `1px solid ${c.color}40`,
-                        }}
-                      >
-                        {t}
-                      </span>
+                      <span key={t} className="px-3 py-1 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.25em", color: c.color, border: `1px solid ${c.color}40` }}>{t}</span>
                     ))}
                   </div>
                 </motion.div>
