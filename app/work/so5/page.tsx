@@ -47,11 +47,6 @@ const screens = [
     desc: "Parity calculator with diário/semanal toggle. Users configure calculation type, base type and exchange rate — then see import price vs national average side by side in real time.",
   },
   {
-    src: "/so5/motor-calculo.png",
-    title: "Motor de Cálculo",
-    desc: "Custom formula builder with operator keyboard and model constructor. Users create, save and reuse pricing models without depending on developers or analysts.",
-  },
-  {
     src: "/so5/motor-grafico.png",
     title: "Motor de Gráfico",
     desc: "On-demand chart engine. From risk matrix to time series — users build visualizations directly from their own data models, configured in real time.",
@@ -269,7 +264,7 @@ export default function SO5Case() {
             >
               <BeforeAfterSlider
                 afterImage="/so5/dashboard-commodities.png"
-                beforeImage="/so5/legacy-green-screen.png"
+                beforeImage="/so5/motor-calculo.png"
               />
             </motion.div>
           </div>
