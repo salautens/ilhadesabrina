@@ -499,7 +499,7 @@ export default function Footer() {
 
       {/* Shapes + Canvas */}
       <div ref={containerRef} onMouseMove={handleMouseMove}
-        style={{ position:"relative", padding:"0 1.5rem" }}>
+        style={{ position:"relative", padding:"0 1.5rem", overflow:"hidden" }}>
         <canvas ref={canvasRef}
           style={{ position:"absolute", inset:0, zIndex:20, pointerEvents:"none" }} />
 

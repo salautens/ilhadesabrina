@@ -106,7 +106,7 @@ a, button { cursor: none; }
   /* Footer */
   .footer-cta    { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; padding: 2.5rem 1.5rem !important; }
   .footer-bottom { flex-direction: column !important; gap: 1rem !important; align-items: flex-start !important; }
-  .footer-shapes { height: 200px !important; }
+  .footer-shapes { height: 160px !important; overflow: hidden !important; }
   .footer-social { gap: 1.5rem !important; }
 }
 
