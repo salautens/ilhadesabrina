@@ -264,7 +264,7 @@ export default function SO5Case() {
             >
               <BeforeAfterSlider
                 afterImage="/so5/dashboard-commodities.png"
-                beforeImage="/so5/motor-calculo.png"
+                beforeImage="/so5/legacy-produtos.png"
               />
             </motion.div>
           </div>
