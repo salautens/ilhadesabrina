@@ -172,7 +172,7 @@ const skills = [
 
 export default function About() {
   return (
-    <main className="min-h-screen pt-24" style={{ backgroundColor: "#0A0908", paddingLeft: 68, paddingRight: 68 }}>
+    <main className="about-main-px min-h-screen pt-24" style={{ backgroundColor: "#0A0908", paddingLeft: 68, paddingRight: 68 }}>
 
       {/* Header */}
       <section className="py-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
@@ -194,10 +194,10 @@ export default function About() {
       </section>
 
       {/* Main content — foto + texto */}
-      <section style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "700px" }}>
+      <section className="grid-about-hero" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", display: "grid", gridTemplateColumns: "1fr 1fr", minHeight: "700px" }}>
 
           {/* Esquerda — pinball photo, full height */}
-          <div style={{ position: "relative", minHeight: "700px" }}>
+          <div className="about-photo-col" style={{ position: "relative", minHeight: "700px" }}>
             <PinballPhoto />
           </div>
 
@@ -278,7 +278,7 @@ export default function About() {
           O que eu valorizo
         </motion.p>
 
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid-values grid grid-cols-3 gap-6">
           {[
             {
               icon: "🎯",
@@ -342,7 +342,7 @@ export default function About() {
       <section className="" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", paddingTop: 120, paddingBottom: 120 }}>
 
         {/* Header 2 colunas */}
-        <div className="grid grid-cols-12 gap-8 mb-16">
+        <div className="grid-exp-header grid grid-cols-12 gap-8 mb-16">
           <motion.p
             className="col-span-5"
             style={{ fontFamily: "var(--font-space)", fontSize: "clamp(1.4rem, 2.2vw, 2rem)", fontWeight: 700, color: "#F2EDE8", lineHeight: 1.2 }}
@@ -365,7 +365,7 @@ export default function About() {
         </div>
 
         {/* Cards de experiência */}
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid-exp grid grid-cols-3 gap-6">
           {[
             {
               icon: "✦",

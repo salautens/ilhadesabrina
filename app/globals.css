@@ -63,6 +63,23 @@ body {
 * { cursor: none; }
 a, button { cursor: none; }
 
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .section-px { padding-left: 24px !important; padding-right: 24px !important; }
+  .about-main-px { padding-left: 24px !important; padding-right: 24px !important; }
+  .grid-figma { grid-template-columns: 1fr !important; }
+  .arrow-col { display: none !important; }
+  .grid-clients { grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; }
+  .grid-work { grid-template-columns: 1fr !important; }
+  .grid-about-hero { grid-template-columns: 1fr !important; min-height: unset !important; }
+  .about-photo-col { min-height: 400px !important; }
+  .grid-values { grid-template-columns: 1fr !important; }
+  .grid-exp { grid-template-columns: 1fr !important; }
+  .grid-exp-header { grid-template-columns: 1fr !important; }
+  .hero-bottom-row { flex-direction: column !important; align-items: flex-start !important; gap: 1.5rem !important; }
+  .work-card-offset { margin-top: 0 !important; }
+}
+
 /* ── Vision modes ──────────────────────────────────────────────── */
 
 /* Light — invert + desaturate → grayscale minimal */

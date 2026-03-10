@@ -138,7 +138,7 @@ export default function Home() {
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
-          padding: "6rem 3rem 4rem",
+          padding: "6rem clamp(1.5rem, 4vw, 3rem) 4rem",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
           overflow: "hidden",
         }}
@@ -187,6 +187,7 @@ export default function Home() {
             justifyContent: "space-between",
             alignItems: "flex-end",
             gap: "2rem",
+            flexWrap: "wrap",
           }}
           variants={fadeUp}
           custom={5}
@@ -254,12 +255,14 @@ export default function Home() {
 
       {/* ══ 03 · FIGMA → CLAUDE ══════════════════════════════════════ */}
       <section
+        className="section-px"
         style={{
-          padding: "6rem 3rem",
+          padding: "6rem clamp(1.5rem, 4vw, 3rem)",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
       >
         <div
+          className="grid-figma"
           style={{
             display: "grid",
             gridTemplateColumns: "1fr auto 1fr",
@@ -293,6 +296,7 @@ export default function Home() {
 
           {/* Arrow */}
           <motion.div
+            className="arrow-col"
             style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "0.75rem" }}
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -355,11 +359,12 @@ export default function Home() {
       {/* ══ 04 · CLIENTS ════════════════════════════════════════════ */}
       <section
         style={{
-          padding: "6rem 3rem",
+          padding: "6rem clamp(1.5rem, 4vw, 3rem)",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
       >
         <div
+          className="grid-clients"
           style={{
             display: "grid",
             gridTemplateColumns: "repeat(7, 1fr)",
@@ -400,7 +405,7 @@ export default function Home() {
       {/* ══ 05 · SELECTED WORK ══════════════════════════════════════ */}
       <section
         style={{
-          padding: "6rem 3rem",
+          padding: "6rem clamp(1.5rem, 4vw, 3rem)",
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
       >
@@ -408,6 +413,7 @@ export default function Home() {
 
         {/* Asymmetric editorial grid: 62fr / 38fr */}
         <div
+          className="grid-work"
           style={{
             display: "grid",
             gridTemplateColumns: "62fr 38fr",
@@ -441,6 +447,7 @@ export default function Home() {
           ].map((card, i) => (
             <motion.div
               key={card.index}
+              className={i === 1 ? "work-card-offset" : ""}
               style={{ marginTop: i === 1 ? "clamp(3rem, 6vw, 7rem)" : 0 }}
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
