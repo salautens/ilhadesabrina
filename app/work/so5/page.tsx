@@ -10,28 +10,28 @@ import InteractiveHotspots from "@/components/InteractiveHotspots";
 const pillars = [
   {
     num: "01",
-    title: "Information Architecture",
-    desc: "Reorganized panel structure with clear hierarchy, logical grouping, and context-aware navigation patterns.",
+    title: "Arquitetura de Informação",
+    desc: "Estrutura de painéis reorganizada com hierarquia clara, agrupamento lógico e padrões de navegação contextual.",
   },
   {
     num: "02",
-    title: "Simplified Flows",
-    desc: "Mapped and streamlined critical user journeys including order management, position tracking, and market data visualization.",
+    title: "Fluxos Simplificados",
+    desc: "Mapeamos e otimizamos jornadas críticas — gestão de pedidos, rastreamento de posições e visualização de dados de mercado.",
   },
   {
     num: "03",
-    title: "Component Library",
-    desc: "Modular components built with shadcn/ui as foundation, consistent implementation across the entire platform.",
+    title: "Biblioteca de Componentes",
+    desc: "Componentes modulares construídos com shadcn/ui como base, com implementação consistente em toda a plataforma.",
   },
   {
     num: "04",
-    title: "Onboarding System",
-    desc: "Structured first-use experience that reduces dependency on human training and accelerates time-to-productivity.",
+    title: "Sistema de Onboarding",
+    desc: "Experiência estruturada de primeiro uso que reduz a dependência de treinamento humano e acelera a produtividade.",
   },
   {
     num: "05",
-    title: "Iterative Validation",
-    desc: "Continuous testing cycles with real users, documented learnings, and prototype-driven refinement throughout.",
+    title: "Validação Iterativa",
+    desc: "Ciclos contínuos de testes com usuários reais, aprendizados documentados e refinamento guiado por protótipos.",
   },
 ];
 
@@ -39,22 +39,22 @@ const screens = [
   {
     src: "/so5/dashboard-commodities.png",
     title: "Base de Dados — Commodities Energéticas",
-    desc: "Unified data layer with real-time commodity tickers (Câmbio, Brent, Gás, Carvão). Analysts manage Nacional, Internacional, Importação, Frete and Geral data from a single surface.",
+    desc: "Camada de dados unificada com tickers em tempo real (Câmbio, Brent, Gás, Carvão). Analistas gerenciam dados Nacionais, Internacionais, Importação, Frete e Geral em uma única superfície.",
   },
   {
     src: "/so5/analise-paridade.png",
     title: "Análise de Paridade",
-    desc: "Parity calculator with diário/semanal toggle. Users configure calculation type, base type and exchange rate — then see import price vs national average side by side in real time.",
+    desc: "Calculadora de paridade com toggle diário/semanal. Usuários configuram tipo de cálculo, base e câmbio — e visualizam preço de importação versus média nacional lado a lado em tempo real.",
   },
   {
     src: "/so5/motor-grafico.png",
     title: "Motor de Gráfico",
-    desc: "On-demand chart engine. From risk matrix to time series — users build visualizations directly from their own data models, configured in real time.",
+    desc: "Motor gráfico sob demanda. De matriz de risco a séries temporais — usuários constroem visualizações diretamente dos seus modelos de dados, configuradas em tempo real.",
   },
   {
     src: "/so5/base-dados.png",
     title: "Gerenciamento — Marcas e Produtos",
-    desc: "Internal and external data management with card/list toggle. Each brand entry connects to its products, segments, collaborators and pricing models.",
+    desc: "Gestão de dados internos e externos com toggle card/lista. Cada entrada de marca se conecta a produtos, segmentos, colaboradores e modelos de precificação.",
   },
 ];
 
@@ -114,20 +114,20 @@ export default function SO5Case() {
   return (
     <main className="min-h-screen pt-24" style={{ backgroundColor: "#0A0908" }}>
 
-      {/* ── BACK ── */}
+      {/* ── VOLTAR ── */}
       <div className="px-8 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <Link href="/work">
           <span
             className="uppercase transition-colors"
             style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}
           >
-            ← Work
+            ← Trabalhos
           </span>
         </Link>
       </div>
 
       {/* ── HERO ── */}
-      <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-28" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="so5-hero-grid grid grid-cols-12 gap-8 items-end">
           <motion.div
             className="so5-col-8 col-span-8"
@@ -139,7 +139,7 @@ export default function SO5Case() {
               className="block mb-4 uppercase"
               style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#3DFF6E" }}
             >
-              01 · Product Design · YEB · 2024
+              01 · Design de Produto · YEB · 2024
             </span>
             <h1
               className="font-bold uppercase leading-none mb-6"
@@ -160,8 +160,8 @@ export default function SO5Case() {
               className="max-w-lg leading-relaxed"
               style={{ fontSize: "1.1rem", color: "#B8B3AE", fontFamily: "var(--font-geist)" }}
             >
-              Transforming a legacy commodity trading platform into a modern, scalable enterprise experience.
-              From green screen to design system.
+              Transformando uma plataforma legada de trading de commodities em uma experiência
+              moderna e escalável. Do sistema legado ao design system.
             </p>
           </motion.div>
 
@@ -172,10 +172,10 @@ export default function SO5Case() {
             transition={{ delay: 0.4, duration: 0.6 }}
           >
             {[
-              { label: "Client", value: "YEB" },
-              { label: "Scope", value: "End-to-end product design" },
-              { label: "Context", value: "Commodity trading · Agribusiness" },
-              { label: "Deliverable", value: "Design system + full platform" },
+              { label: "Cliente", value: "YEB" },
+              { label: "Escopo", value: "Design de produto end-to-end" },
+              { label: "Contexto", value: "Trading de commodities · Agronegócio" },
+              { label: "Entrega", value: "Design system + plataforma completa" },
             ].map((item) => (
               <div key={item.label} style={{ paddingBottom: "1.25rem", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
                 <span
@@ -196,8 +196,8 @@ export default function SO5Case() {
         </div>
       </section>
 
-      {/* ── CORE TENSION ── */}
-      <section className="px-8 py-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      {/* ── TENSÃO CENTRAL ── */}
+      <section className="px-8 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -210,7 +210,7 @@ export default function SO5Case() {
             className="block mb-2 uppercase"
             style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "#3DFF6E" }}
           >
-            Core Tension
+            Tensão Central
           </span>
           <p
             style={{
@@ -220,16 +220,16 @@ export default function SO5Case() {
               color: "#F2EDE8",
             }}
           >
-            Expert users with entrenched mental models
+            Usuários especialistas com modelos mentais arraigados
             <br />
-            vs. a business need for scalable, modern infrastructure.
+            vs. necessidade do negócio de uma infraestrutura moderna e escalável.
           </p>
         </motion.div>
       </section>
 
-      {/* ── PROBLEM ── */}
-      <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="so5-hero-grid grid grid-cols-12 gap-12 mb-16">
+      {/* ── PROBLEMA ── */}
+      <section className="px-8 py-28" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="so5-hero-grid grid grid-cols-12 gap-12 mb-20">
           <motion.div
             className="so5-col-5 col-span-5"
             initial={{ opacity: 0, y: 20 }}
@@ -240,18 +240,18 @@ export default function SO5Case() {
               className="block mb-6 uppercase"
               style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
             >
-              Problem Statement
+              O Problema
             </span>
             <h2
               className="font-medium mb-6"
               style={{ fontFamily: "var(--font-space)", fontSize: "1.6rem", color: "#F2EDE8", lineHeight: 1.3 }}
             >
-              A platform built for yesterday&apos;s workflow
+              Uma plataforma construída para o fluxo de trabalho de ontem
             </h2>
             <p className="text-sm leading-relaxed mb-4" style={{ color: "#B8B3AE" }}>
-              The SO5 platform carried years of accumulated complexity. Expert commodity traders and agricultural
-              analysts navigated dense, unintuitive interfaces derived from AS/400 legacy systems — creating
-              critical bottlenecks in time-sensitive market decisions.
+              A plataforma SO5 carregava anos de complexidade acumulada. Traders de commodities e analistas
+              agrícolas navegavam em interfaces densas e pouco intuitivas, herdadas de sistemas legados AS/400
+              — criando gargalos críticos em decisões de mercado sensíveis ao tempo.
             </p>
           </motion.div>
 
@@ -283,15 +283,15 @@ export default function SO5Case() {
               className="block mb-6 uppercase"
               style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
             >
-              Why This Mattered
+              Por Que Isso Importava
             </span>
             <div className="space-y-0">
               {[
-                "Central to YEB's core commodity trading and market intelligence operations",
-                "Interface friction directly impacted decision speed in volatile markets",
-                "Modernization required to scale the product and onboard clients independently",
-                "Significant gap between data sophistication and user ability to access it fluidly",
-                "Legacy system created developer bottlenecks with every new feature request",
+                "Central às operações de trading de commodities e inteligência de mercado da YEB",
+                "O atrito da interface impactava diretamente a velocidade de decisão em mercados voláteis",
+                "A modernização era necessária para escalar o produto e integrar clientes de forma independente",
+                "Grande lacuna entre a sofisticação dos dados e a capacidade do usuário de acessá-los com fluidez",
+                "O sistema legado criava gargalos de desenvolvimento a cada nova solicitação de funcionalidade",
               ].map((item, i) => (
                 <motion.div
                   key={i}
@@ -313,19 +313,19 @@ export default function SO5Case() {
         </div>
       </section>
 
-      {/* ── CONSTRAINTS ── */}
-      <section className="px-8 py-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
+      {/* ── RESTRIÇÕES ── */}
+      <section className="px-8 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
         <span
-          className="block mb-10 uppercase"
+          className="block mb-12 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
         >
-          Working Within the Real World
+          Trabalhando com a Realidade
         </span>
         <div className="so5-pillars grid grid-cols-3 gap-0">
           {[
-            { label: "Legacy Tech Debt", detail: "Incremental redesign required — couldn't break existing production flows." },
-            { label: "Expert User Base", detail: "High resistance to change from seasoned users with entrenched muscle memory." },
-            { label: "Parallel Delivery", detail: "Design system + screen delivery simultaneously under tight timelines." },
+            { label: "Dívida Técnica Legada", detail: "Redesign incremental obrigatório — não podíamos quebrar fluxos de produção existentes." },
+            { label: "Base de Usuários Especialistas", detail: "Alta resistência à mudança de usuários experientes com memória muscular consolidada." },
+            { label: "Entrega Paralela", detail: "Design system + entrega de telas simultaneamente dentro de prazos apertados." },
           ].map((c, i) => (
             <motion.div
               key={c.label}
@@ -348,16 +348,16 @@ export default function SO5Case() {
         </div>
       </section>
 
-      {/* ── INFORMATION ARCHITECTURE ── */}
-      <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      {/* ── ARQUITETURA DE INFORMAÇÃO ── */}
+      <section className="px-8 py-28" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.span
-          className="block mb-8 uppercase"
+          className="block mb-10 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          Information Architecture
+          Arquitetura de Informação
         </motion.span>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -369,7 +369,7 @@ export default function SO5Case() {
         >
           <Image
             src="/so5/info-architecture.png"
-            alt="SO5 Information Architecture — full sitemap"
+            alt="Arquitetura de Informação SO5 — sitemap completo"
             width={1600}
             height={600}
             className="w-full h-auto"
@@ -377,14 +377,14 @@ export default function SO5Case() {
           />
         </motion.div>
         <p className="mt-4 text-xs" style={{ color: "#7A7570", fontFamily: "var(--font-space)", letterSpacing: "0.2em" }}>
-          Full platform sitemap — Dash → Motor de Cálculo → Motor Gráfico · Base de Dados · Conteúdo · Gerenciamento
+          Sitemap completo da plataforma — Dash → Motor de Cálculo → Motor Gráfico · Base de Dados · Conteúdo · Gerenciamento
         </p>
       </section>
 
-      {/* ── DESIGN PILLARS ── */}
+      {/* ── PILARES DE DESIGN ── */}
       <motion.section
         ref={pillarsRef}
-        className="px-8 py-32 transition-colors duration-1000"
+        className="px-8 py-40 transition-colors duration-1000"
         style={{
           borderBottom: "1px solid rgba(255,255,255,0.07)",
           backgroundColor: pillarBg as any,
@@ -394,7 +394,7 @@ export default function SO5Case() {
           className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
         >
-          Approach — 5 Design Pillars
+          Abordagem — 5 Pilares de Design
         </span>
         <div className="so5-pillars grid grid-cols-5 gap-0">
           {pillars.map((p, i) => (
@@ -408,16 +408,16 @@ export default function SO5Case() {
         </div>
       </motion.section>
 
-      {/* ── SCREENS ── */}
-      <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      {/* ── TELAS ── */}
+      <section className="px-8 py-28" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span
-          className="block mb-12 uppercase"
+          className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
         >
-          Designed for Performance
+          Projetado para Performance
         </span>
 
-        <div className="space-y-24">
+        <div className="space-y-32">
           {screens.map((s, i) => (
             <motion.div
               key={s.title}
@@ -480,20 +480,20 @@ export default function SO5Case() {
         </div>
       </section>
 
-      {/* ── RESULTS ── */}
-      <section className="px-8 py-20" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      {/* ── RESULTADOS ── */}
+      <section className="px-8 py-28" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span
-          className="block mb-12 uppercase"
+          className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
         >
-          Outcomes
+          Resultados
         </span>
         <div className="so5-pillars grid grid-cols-4 gap-0">
           {[
-            { value: "Zero", label: "IT dependency for daily operations" },
-            { value: "5 pillars", label: "delivered in a single design system" },
-            { value: "Independent", label: "client onboarding — no human training" },
-            { value: "A→Z", label: "end-to-end ownership of every module" },
+            { value: "Zero", label: "dependência de TI nas operações diárias" },
+            { value: "5 pilares", label: "entregues em um único design system" },
+            { value: "Independente", label: "onboarding de clientes — sem treinamento humano" },
+            { value: "A→Z", label: "ownership end-to-end de cada módulo" },
           ].map((r, i) => (
             <motion.div
               key={r.label}
@@ -516,14 +516,14 @@ export default function SO5Case() {
         </div>
       </section>
 
-      {/* ── NAV BOTTOM ── */}
-      <section className="px-8 py-12 flex items-center justify-between">
+      {/* ── NAV INFERIOR ── */}
+      <section className="px-8 py-16 flex items-center justify-between">
         <Link href="/work">
           <span
             className="uppercase transition-colors"
             style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}
           >
-            ← All Work
+            ← Todos os trabalhos
           </span>
         </Link>
         <Link href="/contact">
@@ -531,7 +531,7 @@ export default function SO5Case() {
             className="uppercase transition-colors"
             style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#F2EDE8" }}
           >
-            Start a project →
+            Iniciar um projeto →
           </span>
         </Link>
       </section>
