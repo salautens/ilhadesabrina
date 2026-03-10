@@ -1,26 +1,91 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Dark base */
+  --bg: #0A0908;
+  --surface: #141210;
+  --surface-2: #1E1C1A;
+  --text: #F2EDE8;
+  --text-muted: #7A7570;
+  --border: rgba(255, 255, 255, 0.07);
+
+  /* Legacy names kept for compatibility */
+  --skin: #F2EDE8;
+  --steel: #C8BFB5;
+  --shadow: #3D3530;
+  --amber: #C17F3A;
+  --skin-2: #E8E0D8;
+  --shadow-2: #1A1410;
+
+  /* Neon palette — from the halftone gradient */
+  --neon-green: #3DFF6E;
+  --neon-yellow: #F5E040;
+  --neon-blue: #3ACFFF;
+  --neon-purple: #C04DFF;
+  --neon-pink: #FF3FA8;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-skin: var(--skin);
+  --color-steel: var(--steel);
+  --color-shadow: var(--shadow);
+  --color-amber: var(--amber);
+  --color-skin-2: var(--skin-2);
+  --color-shadow-2: var(--shadow-2);
+  --font-sans: var(--font-geist);
+  --font-display: var(--font-space);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  background-color: var(--bg);
+  color: var(--text);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--neon-green);
+  color: var(--bg);
+}
+
+/* Mechanical cursor */
+* { cursor: none; }
+a, button { cursor: none; }
+
+/* ── Vision modes ──────────────────────────────────────────────── */
+
+/* Light — invert + desaturate → grayscale minimal */
+html[data-vision="light"] {
+  filter: invert(1) grayscale(0.92);
+}
+/* Re-invert images so they stay readable (parent grayscale still applies) */
+html[data-vision="light"] img,
+html[data-vision="light"] video,
+html[data-vision="light"] canvas {
+  filter: invert(1);
+}
+
+/* Colorblind simulations via SVG feColorMatrix */
+html[data-vision="deuteranopia"] {
+  filter: url(#cb-deuteranopia);
+}
+html[data-vision="protanopia"] {
+  filter: url(#cb-protanopia);
+}
+html[data-vision="tritanopia"] {
+  filter: url(#cb-tritanopia);
+}
+html[data-vision="achromatopsia"] {
+  filter: url(#cb-achromatopsia);
 }
