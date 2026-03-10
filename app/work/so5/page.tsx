@@ -127,7 +127,7 @@ export default function SO5Case() {
       </div>
 
       {/* ── HERO ── */}
-      <section className="px-8 py-36" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="so5-hero-grid grid grid-cols-12 gap-8 items-end">
           <motion.div
             className="so5-col-8 col-span-8"
@@ -197,7 +197,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── TENSÃO CENTRAL ── */}
-      <section className="px-8 py-32" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -228,7 +228,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── PROBLEMA ── */}
-      <section className="px-8 py-36" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <div className="so5-hero-grid grid grid-cols-12 gap-12 mb-20">
           <motion.div
             className="so5-col-5 col-span-5"
@@ -314,7 +314,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── RESTRIÇÕES ── */}
-      <section className="px-8 py-32" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
+      <section className="px-8 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
         <span
           className="block mb-12 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -349,7 +349,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── ARQUITETURA DE INFORMAÇÃO ── */}
-      <section className="px-8 py-36" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.span
           className="block mb-10 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -384,7 +384,7 @@ export default function SO5Case() {
       {/* ── PILARES DE DESIGN ── */}
       <motion.section
         ref={pillarsRef}
-        className="px-8 py-48 transition-colors duration-1000"
+        className="px-8 py-56 transition-colors duration-1000"
         style={{
           borderBottom: "1px solid rgba(255,255,255,0.07)",
           backgroundColor: pillarBg as any,
@@ -409,7 +409,7 @@ export default function SO5Case() {
       </motion.section>
 
       {/* ── TELAS ── */}
-      <section className="px-8 py-36" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span
           className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -481,7 +481,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── RESULTADOS ── */}
-      <section className="px-8 py-36" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span
           className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -517,7 +517,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── NAV INFERIOR ── */}
-      <section className="px-8 py-24 flex items-center justify-between">
+      <section className="px-8 py-32 flex items-center justify-between">
         <Link href="/work">
           <span
             className="uppercase transition-colors"
