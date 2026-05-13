@@ -81,9 +81,9 @@ function PillarItem({ p, i, scrollProgress }: { p: { num: string; title: string;
         opacity,
         scale,
         borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-        paddingLeft: i > 0 ? "2rem" : 0
+        paddingLeft: i > 0 ? "3rem" : 0
       }}
-      className={`pr-8${i > 0 ? " so5-border-l" : ""}`}
+      className={`pr-10${i > 0 ? " so5-border-l" : ""}`}
     >
       <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#3DFF6E" }}>
         {p.num}
@@ -186,7 +186,7 @@ export default function SO5Case() {
     <main ref={containerRef} className="min-h-screen pt-24" style={{ backgroundColor: "#0A0908" }}>
 
       {/* ── VOLTAR ── */}
-      <div className="px-8 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <div className="px-16 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <Link href="/work">
           <span
             className="uppercase transition-colors"
@@ -198,8 +198,8 @@ export default function SO5Case() {
       </div>
 
       {/* ── HERO ── */}
-      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="so5-hero-grid grid grid-cols-12 gap-8 items-end">
+      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="so5-hero-grid grid grid-cols-12 gap-20 items-end">
           <motion.div
             className="so5-col-8 col-span-8"
             initial={{ opacity: 0, y: 30 }}
@@ -256,7 +256,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── TENSÃO CENTRAL ── */}
-      <section className="px-8 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-16 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -290,8 +290,8 @@ export default function SO5Case() {
       </section>
 
       {/* ── PROBLEMA ── */}
-      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="so5-hero-grid grid grid-cols-12 gap-12 mb-20">
+      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="so5-hero-grid grid grid-cols-12 gap-20 mb-20">
           <motion.div
             className="so5-col-5 col-span-5"
             initial={{ opacity: 0, y: 20 }}
@@ -334,7 +334,7 @@ export default function SO5Case() {
           </div>
         </div>
 
-        <div className="so5-hero-grid grid grid-cols-12 gap-12">
+        <div className="so5-hero-grid grid grid-cols-12 gap-20">
           <div className="so5-col-5 col-span-5 hidden md:block" />
           <motion.div
             className="so5-col-7 col-span-7"
@@ -372,7 +372,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── RESTRIÇÕES ── */}
-      <section className="px-8 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
+      <section className="px-16 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
         <span
           className="block mb-12 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -383,8 +383,8 @@ export default function SO5Case() {
           {constraints.map((c, i) => (
             <motion.div
               key={c.label}
-              className={`pr-10${i > 0 ? " so5-border-l" : ""}`}
-              style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "2.5rem" : 0 }}
+              className={`pr-14${i > 0 ? " so5-border-l" : ""}`}
+              style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "4rem" : 0 }}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -400,7 +400,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── ARQUITETURA DE INFORMAÇÃO ── */}
-      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.span
           className="block mb-10 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -437,7 +437,7 @@ export default function SO5Case() {
       {/* ── PILARES DE DESIGN ── */}
       <motion.section
         ref={pillarsRef}
-        className="px-8 py-56 transition-colors duration-1000"
+        className="px-16 py-56 transition-colors duration-1000"
         style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: pillarBg as any }}
       >
         <span
@@ -454,7 +454,7 @@ export default function SO5Case() {
       </motion.section>
 
       {/* ── TELAS ── */}
-      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span
           className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -462,11 +462,11 @@ export default function SO5Case() {
           {lang === "pt" ? "Projetado para Performance" : "Designed for Performance"}
         </span>
 
-        <div className="space-y-32">
+        <div className="space-y-52">
           {screens.map((s, i) => (
             <motion.div
               key={s.title}
-              className={`so5-hero-grid grid grid-cols-12 gap-12 items-center ${i % 2 === 1 ? "direction-rtl" : ""}`}
+              className={`so5-hero-grid grid grid-cols-12 gap-20 items-center ${i % 2 === 1 ? "direction-rtl" : ""}`}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -514,7 +514,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── RESULTADOS ── */}
-      <section className="px-8 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span
           className="block mb-16 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -525,8 +525,8 @@ export default function SO5Case() {
           {results.map((r, i) => (
             <motion.div
               key={r.label}
-              className={`pr-10${i > 0 ? " so5-border-l" : ""}`}
-              style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "2.5rem" : 0 }}
+              className={`pr-14${i > 0 ? " so5-border-l" : ""}`}
+              style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "4rem" : 0 }}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -542,7 +542,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── NAV INFERIOR ── */}
-      <section className="px-8 py-32 flex items-center justify-between">
+      <section className="px-16 py-32 flex items-center justify-between">
         <Link href="/work">
           <span
             className="uppercase transition-colors"
