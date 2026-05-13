@@ -26,76 +26,16 @@ function getPillars(lang: Lang) {
 
 function getScreens(lang: Lang) {
   return lang === "pt" ? [
-    {
-      src: "/so5/dashboard-commodities.png",
-      title: "Base de Dados — Commodities Energéticas",
-      desc: "Camada de dados unificada com tickers em tempo real (Câmbio, Brent, Gás, Carvão). Analistas gerenciam dados Nacionais, Internacionais, Importação, Frete e Geral em uma única superfície.",
-    },
-    {
-      src: "/so5/analise-paridade.png",
-      title: "Análise de Paridade",
-      desc: "Calculadora de paridade com toggle diário/semanal. Usuários configuram tipo de cálculo, base e câmbio — e visualizam preço de importação versus média nacional lado a lado em tempo real.",
-    },
-    {
-      src: "/so5/motor-grafico.png",
-      title: "Motor de Gráfico",
-      desc: "Motor gráfico sob demanda. De matriz de risco a séries temporais — usuários constroem visualizações diretamente dos seus modelos de dados, configuradas em tempo real.",
-    },
-    {
-      src: "/so5/base-dados.png",
-      title: "Gerenciamento — Marcas e Produtos",
-      desc: "Gestão de dados internos e externos com toggle card/lista. Cada entrada de marca se conecta a produtos, segmentos, colaboradores e modelos de precificação.",
-    },
+    { src: "/so5/dashboard-commodities.png", title: "Base de Dados — Commodities Energéticas", desc: "Camada de dados unificada com tickers em tempo real (Câmbio, Brent, Gás, Carvão). Analistas gerenciam dados Nacionais, Internacionais, Importação, Frete e Geral em uma única superfície." },
+    { src: "/so5/analise-paridade.png", title: "Análise de Paridade", desc: "Calculadora de paridade com toggle diário/semanal. Usuários configuram tipo de cálculo, base e câmbio — e visualizam preço de importação versus média nacional lado a lado em tempo real." },
+    { src: "/so5/motor-grafico.png", title: "Motor de Gráfico", desc: "Motor gráfico sob demanda. De matriz de risco a séries temporais — usuários constroem visualizações diretamente dos seus modelos de dados, configuradas em tempo real." },
+    { src: "/so5/base-dados.png", title: "Gerenciamento — Marcas e Produtos", desc: "Gestão de dados internos e externos com toggle card/lista. Cada entrada de marca se conecta a produtos, segmentos, colaboradores e modelos de precificação." },
   ] : [
-    {
-      src: "/so5/dashboard-commodities.png",
-      title: "Database — Energy Commodities",
-      desc: "Unified data layer with real-time tickers (FX, Brent, Gas, Coal). Analysts manage National, International, Import, Freight, and General data in a single surface.",
-    },
-    {
-      src: "/so5/analise-paridade.png",
-      title: "Parity Analysis",
-      desc: "Parity calculator with daily/weekly toggle. Users configure calculation type, base, and exchange rate — and view import price vs. national average side by side in real time.",
-    },
-    {
-      src: "/so5/motor-grafico.png",
-      title: "Chart Engine",
-      desc: "On-demand chart engine. From risk matrix to time series — users build visualizations directly from their data models, configured in real time.",
-    },
-    {
-      src: "/so5/base-dados.png",
-      title: "Management — Brands & Products",
-      desc: "Internal and external data management with card/list toggle. Each brand entry connects to products, segments, collaborators, and pricing models.",
-    },
+    { src: "/so5/dashboard-commodities.png", title: "Database — Energy Commodities", desc: "Unified data layer with real-time tickers (FX, Brent, Gas, Coal). Analysts manage National, International, Import, Freight, and General data in a single surface." },
+    { src: "/so5/analise-paridade.png", title: "Parity Analysis", desc: "Parity calculator with daily/weekly toggle. Users configure calculation type, base, and exchange rate — and view import price vs. national average side by side in real time." },
+    { src: "/so5/motor-grafico.png", title: "Chart Engine", desc: "On-demand chart engine. From risk matrix to time series — users build visualizations directly from their data models, configured in real time." },
+    { src: "/so5/base-dados.png", title: "Management — Brands & Products", desc: "Internal and external data management with card/list toggle. Each brand entry connects to products, segments, collaborators, and pricing models." },
   ];
-}
-
-function PillarItem({ p, i, scrollProgress }: { p: { num: string; title: string; desc: string }; i: number; scrollProgress: any }) {
-  const range = [i * 0.2, (i + 1) * 0.2];
-  const opacity = useTransform(scrollProgress, [range[0] - 0.1, range[0], range[1], range[1] + 0.1], [0.3, 1, 1, 0.3]);
-  const scale = useTransform(scrollProgress, [range[0] - 0.1, range[0], range[1], range[1] + 0.1], [0.98, 1, 1, 0.98]);
-
-  return (
-    <motion.div
-      style={{
-        opacity,
-        scale,
-        borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-        paddingLeft: i > 0 ? "3rem" : 0
-      }}
-      className={`pr-10${i > 0 ? " so5-border-l" : ""}`}
-    >
-      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#3DFF6E" }}>
-        {p.num}
-      </span>
-      <p className="font-medium mb-3 text-sm" style={{ fontFamily: "var(--font-space)", color: "#F2EDE8" }}>
-        {p.title}
-      </p>
-      <p className="text-xs leading-relaxed font-geist font-light" style={{ color: "#B8B3AE" }}>
-        {p.desc}
-      </p>
-    </motion.div>
-  );
 }
 
 export default function SO5Case() {
@@ -111,29 +51,16 @@ export default function SO5Case() {
     offset: ["start center", "end center"],
   });
 
-  const pillarBg = useTransform(
-    pillarScroll,
-    [0, 0.2, 0.4, 0.6, 0.8, 1],
-    [
-      "rgba(61,255,110,0.01)",
-      "rgba(61,255,110,0.05)",
-      "rgba(255,63,168,0.05)",
-      "rgba(26,188,254,0.05)",
-      "rgba(10,207,131,0.05)",
-      "rgba(61,255,110,0.01)",
-    ]
-  );
-
   const metaItems = lang === "pt" ? [
     { label: "Cliente", value: "YEB" },
-    { label: "Escopo", value: "Design de produto end-to-end" },
-    { label: "Contexto", value: "Trading de commodities · Agronegócio" },
-    { label: "Entrega", value: "Design system + plataforma completa" },
+    { label: "Escopo", value: "End-to-end" },
+    { label: "Contexto", value: "Commodities · Agro" },
+    { label: "Ano", value: "2024" },
   ] : [
     { label: "Client", value: "YEB" },
-    { label: "Scope", value: "End-to-end product design" },
-    { label: "Context", value: "Commodity trading · Agribusiness" },
-    { label: "Delivery", value: "Design system + complete platform" },
+    { label: "Scope", value: "End-to-end" },
+    { label: "Context", value: "Commodities · Agro" },
+    { label: "Year", value: "2024" },
   ];
 
   const whyItems = lang === "pt" ? [
@@ -150,26 +77,16 @@ export default function SO5Case() {
     "Legacy system created development bottlenecks with every new feature request",
   ];
 
-  const constraints = lang === "pt" ? [
-    { label: "Dívida Técnica Legada", detail: "Redesign incremental obrigatório — não podíamos quebrar fluxos de produção existentes." },
-    { label: "Base de Usuários Especialistas", detail: "Alta resistência à mudança de usuários experientes com memória muscular consolidada." },
-    { label: "Entrega Paralela", detail: "Design system + entrega de telas simultaneamente dentro de prazos apertados." },
-  ] : [
-    { label: "Legacy Tech Debt", detail: "Incremental redesign required — couldn't break existing production flows." },
-    { label: "Expert User Base", detail: "High resistance to change from seasoned users with muscle memory." },
-    { label: "Parallel Delivery", detail: "Design system + screen delivery simultaneously under tight timelines." },
-  ];
-
   const results = lang === "pt" ? [
-    { value: "Zero", label: "dependência de TI nas operações diárias" },
-    { value: "5 pilares", label: "entregues em um único design system" },
-    { value: "Independente", label: "onboarding de clientes — sem treinamento humano" },
-    { value: "A→Z", label: "ownership end-to-end de cada módulo" },
+    { value: "Zero", label: "dependência de TI" },
+    { value: "5", label: "pilares de design" },
+    { value: "100%", label: "onboarding independente" },
+    { value: "A→Z", label: "ownership end-to-end" },
   ] : [
-    { value: "Zero", label: "IT dependency for daily operations" },
-    { value: "5 pillars", label: "delivered in a single design system" },
-    { value: "Independent", label: "client onboarding — no human training needed" },
-    { value: "A→Z", label: "end-to-end ownership of every module" },
+    { value: "Zero", label: "IT dependency" },
+    { value: "5", label: "design pillars" },
+    { value: "100%", label: "independent onboarding" },
+    { value: "A→Z", label: "end-to-end ownership" },
   ];
 
   const hotspots = lang === "pt" ? [
@@ -188,44 +105,57 @@ export default function SO5Case() {
       {/* ── VOLTAR ── */}
       <div className="px-16 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <Link href="/work">
-          <span
-            className="uppercase transition-colors"
-            style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}
-          >
+          <span className="uppercase transition-colors" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}>
             ← {lang === "pt" ? "Trabalhos" : "Work"}
           </span>
         </Link>
       </div>
 
       {/* ── HERO ── */}
-      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="so5-hero-grid grid grid-cols-12 gap-20 items-end">
+      <section className="px-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", position: "relative", overflow: "hidden" }}>
+        {/* Watermark background text */}
+        <div style={{
+          position: "absolute", top: "50%", left: "50%",
+          transform: "translate(-50%, -50%)",
+          fontFamily: "var(--font-space)", fontWeight: 700,
+          fontSize: "clamp(5rem, 18vw, 16rem)",
+          letterSpacing: "0.08em", textTransform: "uppercase",
+          color: "rgba(255,255,255,0.025)",
+          whiteSpace: "nowrap", userSelect: "none", pointerEvents: "none",
+          zIndex: 0,
+        }}>
+          CASE STUDY
+        </div>
+
+        {/* Top labels */}
+        <div className="flex items-center justify-between pt-16 pb-10" style={{ position: "relative", zIndex: 1 }}>
+          <span style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.4em", color: "#7A7570", textTransform: "uppercase" }}>
+            {lang === "pt" ? "UI/UX · Design de Produto" : "UI/UX · Product Design"}
+          </span>
+          <span style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.4em", color: "#7A7570", textTransform: "uppercase" }}>
+            CASE STUDY
+          </span>
+          <span style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+            2024
+          </span>
+        </div>
+
+        {/* Hero grid: title left, cover image right */}
+        <div className="so5-hero-grid grid grid-cols-12 gap-20 items-end pb-20" style={{ position: "relative", zIndex: 1 }}>
           <motion.div
-            className="so5-col-8 col-span-8"
+            className="so5-col-6 col-span-6 flex flex-col justify-end"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0, 0, 1] }}
           >
-            <span
-              className="block mb-4 uppercase"
-              style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#3DFF6E" }}
-            >
-              {lang === "pt" ? "01 · Design de Produto · YEB · 2024" : "01 · Product Design · YEB · 2024"}
+            <span className="block mb-6 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#3DFF6E" }}>
+              01 · YEB · 2024
             </span>
-            <h1
-              className="font-bold uppercase leading-none mb-6"
-              style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2.5rem, 7vw, 7rem)", letterSpacing: "0.03em", color: "#F2EDE8" }}
-            >
-              SO5
-              <br />
-              Intelligence
-              <br />
-              Hub
+            <h1 className="font-bold uppercase leading-none mb-8"
+              style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2.5rem, 7vw, 7rem)", letterSpacing: "0.03em", color: "#F2EDE8" }}>
+              SO5<br />Intelligence<br />Hub
             </h1>
-            <p
-              className="max-w-lg leading-relaxed"
-              style={{ fontSize: "1.1rem", color: "#B8B3AE", fontFamily: "var(--font-geist)" }}
-            >
+            <p className="leading-relaxed" style={{ fontSize: "1rem", color: "#B8B3AE", fontFamily: "var(--font-geist)", maxWidth: "480px" }}>
               {lang === "pt"
                 ? "Transformando uma plataforma legada de trading de commodities em uma experiência moderna e escalável. Do sistema legado ao design system."
                 : "Transforming a legacy commodity trading platform into a modern, scalable experience. From legacy system to design system."}
@@ -233,174 +163,224 @@ export default function SO5Case() {
           </motion.div>
 
           <motion.div
-            className="so5-col-4 col-span-4 flex flex-col gap-5"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.6 }}
+            className="so5-col-6 col-span-6"
+            initial={{ opacity: 0, scale: 0.96 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 0.9, ease: [0.25, 0, 0, 1] }}
           >
-            {metaItems.map((item) => (
-              <div key={item.label} style={{ paddingBottom: "1.25rem", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-                <span
-                  className="block uppercase mb-1"
-                  style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: "#7A7570" }}
-                >
-                  {item.label}
-                </span>
-                <span className="text-sm" style={{ fontFamily: "var(--font-space)", color: "#F2EDE8" }}>
-                  {item.value}
-                </span>
-              </div>
-            ))}
+            <div style={{ border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden" }}>
+              <Image
+                src="/so5/so5-cover.png"
+                alt="SO5 Intelligence Hub"
+                width={1200}
+                height={760}
+                className="w-full h-auto block"
+              />
+            </div>
           </motion.div>
         </div>
-      </section>
 
-      {/* ── TENSÃO CENTRAL ── */}
-      <section className="px-16 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        {/* ── STATS BAR ── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="py-8 px-10"
-          style={{ borderLeft: "2px solid #3DFF6E", backgroundColor: "rgba(61,255,110,0.04)" }}
+          className="grid grid-cols-4"
+          style={{ borderTop: "1px solid rgba(255,255,255,0.07)", position: "relative", zIndex: 1 }}
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5, duration: 0.6 }}
         >
-          <span
-            className="block mb-2 uppercase"
-            style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "#3DFF6E" }}
-          >
-            {lang === "pt" ? "Tensão Central" : "Core Tension"}
-          </span>
-          <p style={{ fontFamily: "var(--font-space)", fontSize: "clamp(1.1rem, 2.5vw, 1.8rem)", fontWeight: 300, color: "#F2EDE8" }}>
-            {lang === "pt" ? (
-              <>
-                Usuários especialistas com modelos mentais arraigados
-                <br />
-                vs. necessidade do negócio de uma infraestrutura moderna e escalável.
-              </>
-            ) : (
-              <>
-                Expert users with entrenched mental models
-                <br />
-                vs. a business need for modern, scalable infrastructure.
-              </>
-            )}
-          </p>
+          {metaItems.map((item, i) => (
+            <div
+              key={item.label}
+              style={{
+                padding: "2.5rem 0",
+                borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                paddingLeft: i > 0 ? "2.5rem" : 0,
+              }}
+            >
+              <p style={{ fontFamily: "var(--font-space)", fontSize: "clamp(1.2rem, 2vw, 1.8rem)", fontWeight: 700, color: "#F2EDE8", marginBottom: "0.5rem" }}>
+                {item.value}
+              </p>
+              <p style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: "#7A7570", textTransform: "uppercase" }}>
+                {item.label}
+              </p>
+            </div>
+          ))}
         </motion.div>
       </section>
 
-      {/* ── PROBLEMA ── */}
-      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="so5-hero-grid grid grid-cols-12 gap-20 mb-20">
+      {/* ── PROBLEMA | ABORDAGEM ── two dashed-border boxes ── */}
+      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="grid grid-cols-2 gap-6">
+          {/* Box esquerdo — Problema */}
           <motion.div
-            className="so5-col-5 col-span-5"
+            style={{ border: "1px dashed rgba(255,255,255,0.15)", padding: "3rem" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <span
-              className="block mb-6 uppercase"
-              style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
-            >
-              {lang === "pt" ? "O Problema" : "The Problem"}
+            <span className="block mb-2 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+              {lang === "pt" ? "Problem solving" : "Problem solving"}
             </span>
-            <h2
-              className="font-medium mb-6"
-              style={{ fontFamily: "var(--font-space)", fontSize: "1.6rem", color: "#F2EDE8", lineHeight: 1.3 }}
-            >
-              {lang === "pt"
-                ? "Uma plataforma construída para o fluxo de trabalho de ontem"
-                : "A platform built for yesterday's workflow"}
+            <h2 style={{ fontFamily: "var(--font-space)", fontSize: "1.4rem", fontWeight: 700, color: "#F2EDE8", marginBottom: "2rem", lineHeight: 1.2 }}>
+              {lang === "pt" ? (
+                <><span style={{ color: "#3DFF6E" }}>Problema</span> Central</>
+              ) : (
+                <><span style={{ color: "#3DFF6E" }}>Problem</span> Statement</>
+              )}
             </h2>
-            <p className="text-sm leading-relaxed mb-4" style={{ color: "#B8B3AE" }}>
-              {lang === "pt"
-                ? "A plataforma SO5 carregava anos de complexidade acumulada. Traders de commodities e analistas agrícolas navegavam em interfaces densas e pouco intuitivas, herdadas de sistemas legados AS/400 — criando gargalos críticos em decisões de mercado sensíveis ao tempo."
-                : "The SO5 platform carried years of accumulated complexity. Commodity traders and agricultural analysts navigated dense, unintuitive interfaces inherited from AS/400 legacy systems — creating critical bottlenecks in time-sensitive market decisions."}
-            </p>
-          </motion.div>
-
-          <div className="so5-col-7 col-span-7">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="border border-white/10 rounded-sm overflow-hidden shadow-2xl"
-            >
-              <BeforeAfterSlider
-                afterImage="/so5/dashboard-commodities.png"
-                beforeImage="/so5/legacy-produtos.png"
-              />
-            </motion.div>
-          </div>
-        </div>
-
-        <div className="so5-hero-grid grid grid-cols-12 gap-20">
-          <div className="so5-col-5 col-span-5 hidden md:block" />
-          <motion.div
-            className="so5-col-7 col-span-7"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-          >
-            <span
-              className="block mb-6 uppercase"
-              style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
-            >
-              {lang === "pt" ? "Por Que Isso Importava" : "Why This Mattered"}
-            </span>
             <div className="space-y-0">
-              {whyItems.map((item, i) => (
-                <motion.div
-                  key={i}
-                  className="flex items-start gap-5 py-4"
-                  style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}
-                  initial={{ opacity: 0, x: 10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                >
-                  <span style={{ color: "#3DFF6E", fontFamily: "var(--font-space)", fontSize: "0.6rem", paddingTop: "2px" }}>
+              {whyItems.slice(0, 3).map((item, i) => (
+                <div key={i} className="flex items-start gap-4 py-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                  <span style={{ color: "#3DFF6E", fontFamily: "var(--font-space)", fontSize: "0.55rem", flexShrink: 0, paddingTop: "2px" }}>
                     {String(i + 1).padStart(2, "0")}
                   </span>
                   <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{item}</p>
-                </motion.div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Box direito — Abordagem + Tensão */}
+          <motion.div
+            style={{ border: "1px dashed rgba(255,255,255,0.15)", padding: "3rem" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15, duration: 0.6 }}
+          >
+            <span className="block mb-2 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+              {lang === "pt" ? "Hipótese" : "Hypothesis"}
+            </span>
+            <h2 style={{ fontFamily: "var(--font-space)", fontSize: "1.4rem", fontWeight: 700, color: "#F2EDE8", marginBottom: "2rem", lineHeight: 1.2 }}>
+              {lang === "pt" ? (
+                <><span style={{ color: "#3DFF6E" }}>Possível</span> Solução</>
+              ) : (
+                <><span style={{ color: "#3DFF6E" }}>Possible</span> Solution</>
+              )}
+            </h2>
+            <div style={{ borderLeft: "2px solid #3DFF6E", paddingLeft: "1.25rem", marginBottom: "2rem" }}>
+              <p style={{ fontFamily: "var(--font-space)", fontSize: "0.85rem", fontWeight: 300, color: "#F2EDE8", lineHeight: 1.6 }}>
+                {lang === "pt"
+                  ? "Usuários especialistas com modelos mentais arraigados vs. necessidade do negócio de uma infraestrutura moderna e escalável."
+                  : "Expert users with entrenched mental models vs. a business need for modern, scalable infrastructure."}
+              </p>
+            </div>
+            <div className="space-y-0">
+              {whyItems.slice(3).map((item, i) => (
+                <div key={i} className="flex items-start gap-4 py-4" style={{ borderTop: "1px solid rgba(255,255,255,0.06)" }}>
+                  <span style={{ color: "#3DFF6E", fontFamily: "var(--font-space)", fontSize: "0.55rem", flexShrink: 0, paddingTop: "2px" }}>
+                    {String(i + 4).padStart(2, "0")}
+                  </span>
+                  <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{item}</p>
+                </div>
               ))}
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* ── RESTRIÇÕES ── */}
-      <section className="px-16 py-40" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: "rgba(255,255,255,0.02)" }}>
-        <span
-          className="block mb-12 uppercase"
-          style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
-        >
-          {lang === "pt" ? "Trabalhando com a Realidade" : "Working with Reality"}
+      {/* ── BEFORE/AFTER ── */}
+      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <span className="block mb-10 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+          {lang === "pt" ? "Antes & Depois" : "Before & After"}
         </span>
-        <div className="so5-pillars grid grid-cols-3 gap-0">
-          {constraints.map((c, i) => (
-            <motion.div
-              key={c.label}
-              className={`pr-14${i > 0 ? " so5-border-l" : ""}`}
-              style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "4rem" : 0 }}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
-              <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#3DFF6E" }}>
-                {c.label}
-              </span>
-              <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{c.detail}</p>
-            </motion.div>
-          ))}
-        </div>
+        <motion.div
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="border border-white/10 rounded-sm overflow-hidden shadow-2xl"
+        >
+          <BeforeAfterSlider
+            afterImage="/so5/dashboard-commodities.png"
+            beforeImage="/so5/legacy-produtos.png"
+          />
+        </motion.div>
       </section>
 
+      {/* ── DESIGN PROCESS — TIMELINE DOS PILARES ── */}
+      <motion.section
+        ref={pillarsRef}
+        className="px-16 py-24 transition-colors duration-1000"
+        style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
+      >
+        <div className="text-center mb-20">
+          <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+            {lang === "pt" ? "Abordagem de Design" : "Design Framework"}
+          </span>
+          <h2 style={{ fontFamily: "var(--font-space)", fontSize: "clamp(1.4rem, 3vw, 2.2rem)", fontWeight: 700, color: "#F2EDE8" }}>
+            {lang === "pt" ? (
+              <><span style={{ color: "#3DFF6E" }}>Design</span> Process</>
+            ) : (
+              <><span style={{ color: "#3DFF6E" }}>Design</span> Process</>
+            )}
+          </h2>
+        </div>
+
+        {/* Timeline track */}
+        <div style={{ position: "relative" }}>
+          {/* Connecting line */}
+          <div style={{
+            position: "absolute", top: "1rem", left: "calc(10% + 1rem)", right: "calc(10% + 1rem)",
+            height: "1px", backgroundColor: "rgba(61,255,110,0.2)",
+          }} />
+
+          {/* Phase dots + labels */}
+          <div className="grid grid-cols-5" style={{ marginBottom: "3rem" }}>
+            {pillars.map((p, i) => (
+              <div key={p.num} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+                <motion.div
+                  style={{
+                    width: "2rem", height: "2rem", borderRadius: "50%",
+                    border: "1px solid #3DFF6E",
+                    backgroundColor: "#0A0908",
+                    display: "flex", alignItems: "center", justifyContent: "center",
+                    marginBottom: "1rem", zIndex: 1, position: "relative",
+                  }}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  <span style={{ fontFamily: "var(--font-space)", fontSize: "0.45rem", letterSpacing: "0.1em", color: "#3DFF6E" }}>
+                    {p.num}
+                  </span>
+                </motion.div>
+              </div>
+            ))}
+          </div>
+
+          {/* Pillar cards */}
+          <div className="grid grid-cols-5 gap-0">
+            {pillars.map((p, i) => (
+              <motion.div
+                key={p.num}
+                style={{
+                  borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                  paddingLeft: i > 0 ? "2rem" : 0,
+                  paddingRight: "2rem",
+                  paddingTop: "1.5rem",
+                }}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+              >
+                <p className="font-medium mb-2 text-sm" style={{ fontFamily: "var(--font-space)", color: "#F2EDE8" }}>
+                  {p.title}
+                </p>
+                <p className="text-xs leading-relaxed" style={{ color: "#7A7570" }}>
+                  {p.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
       {/* ── ARQUITETURA DE INFORMAÇÃO ── */}
-      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.span
           className="block mb-10 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -434,31 +414,9 @@ export default function SO5Case() {
         </p>
       </section>
 
-      {/* ── PILARES DE DESIGN ── */}
-      <motion.section
-        ref={pillarsRef}
-        className="px-16 py-56 transition-colors duration-1000"
-        style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", backgroundColor: pillarBg as any }}
-      >
-        <span
-          className="block mb-16 uppercase"
-          style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
-        >
-          {lang === "pt" ? "Abordagem — 5 Pilares de Design" : "Approach — 5 Design Pillars"}
-        </span>
-        <div className="so5-pillars grid grid-cols-5 gap-0">
-          {pillars.map((p, i) => (
-            <PillarItem key={p.num} p={p} i={i} scrollProgress={pillarScroll} />
-          ))}
-        </div>
-      </motion.section>
-
       {/* ── TELAS ── */}
-      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <span
-          className="block mb-16 uppercase"
-          style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
-        >
+      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <span className="block mb-16 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
           {lang === "pt" ? "Projetado para Performance" : "Designed for Performance"}
         </span>
 
@@ -478,30 +436,18 @@ export default function SO5Case() {
               >
                 {i === 0 ? (
                   <InteractiveHotspots hotspots={hotspots}>
-                    <Image
-                      src={s.src}
-                      alt={s.title}
-                      width={1400}
-                      height={900}
-                      className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]"
-                    />
+                    <Image src={s.src} alt={s.title} width={1400} height={900} className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]" />
                   </InteractiveHotspots>
                 ) : (
-                  <Image
-                    src={s.src}
-                    alt={s.title}
-                    width={1400}
-                    height={900}
-                    className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]"
-                  />
+                  <Image src={s.src} alt={s.title} width={1400} height={900} className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]" />
                 )}
               </div>
 
               <div className={`so5-col-4 col-span-4 ${i % 2 === 1 ? "col-start-1 md:order-1 order-2" : "order-2"}`}>
-                <span className="block mb-2 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: "#3DFF6E" }}>
+                <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: "#3DFF6E" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-medium mb-4" style={{ fontFamily: "var(--font-space)", fontSize: "1rem", color: "#F2EDE8" }}>
+                <h3 className="font-medium mb-4" style={{ fontFamily: "var(--font-space)", fontSize: "1.1rem", color: "#F2EDE8", lineHeight: 1.3 }}>
                   {s.title}
                 </h3>
                 <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>
@@ -513,29 +459,30 @@ export default function SO5Case() {
         </div>
       </section>
 
-      {/* ── RESULTADOS ── */}
-      <section className="px-16 py-44" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <span
-          className="block mb-16 uppercase"
-          style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
-        >
+      {/* ── RESULTADOS — stats bar ── */}
+      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <span className="block mb-16 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
           {lang === "pt" ? "Resultados" : "Results"}
         </span>
-        <div className="so5-pillars grid grid-cols-4 gap-0">
+        <div className="grid grid-cols-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
           {results.map((r, i) => (
             <motion.div
               key={r.label}
-              className={`pr-14${i > 0 ? " so5-border-l" : ""}`}
-              style={{ borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none", paddingLeft: i > 0 ? "4rem" : 0 }}
+              style={{
+                padding: "3rem 0",
+                borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                paddingLeft: i > 0 ? "3rem" : 0,
+                paddingRight: "3rem",
+              }}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
             >
-              <p className="font-bold mb-2" style={{ fontFamily: "var(--font-space)", fontSize: "2rem", color: "#3DFF6E", lineHeight: 1 }}>
+              <p className="font-bold mb-2" style={{ fontFamily: "var(--font-space)", fontSize: "clamp(2rem, 4vw, 3.5rem)", color: "#3DFF6E", lineHeight: 1 }}>
                 {r.value}
               </p>
-              <p className="text-sm" style={{ color: "#B8B3AE" }}>{r.label}</p>
+              <p className="text-sm" style={{ color: "#7A7570", fontFamily: "var(--font-space)", letterSpacing: "0.05em" }}>{r.label}</p>
             </motion.div>
           ))}
         </div>
@@ -544,18 +491,12 @@ export default function SO5Case() {
       {/* ── NAV INFERIOR ── */}
       <section className="px-16 py-32 flex items-center justify-between">
         <Link href="/work">
-          <span
-            className="uppercase transition-colors"
-            style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}
-          >
+          <span className="uppercase transition-colors" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}>
             ← {lang === "pt" ? "Todos os trabalhos" : "All work"}
           </span>
         </Link>
         <Link href="/contact">
-          <span
-            className="uppercase transition-colors"
-            style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#F2EDE8" }}
-          >
+          <span className="uppercase transition-colors" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#F2EDE8" }}>
             {lang === "pt" ? "Iniciar um projeto →" : "Start a project →"}
           </span>
         </Link>
