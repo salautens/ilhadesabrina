@@ -377,7 +377,7 @@ export default function Home() {
             <>
               From <span style={{ color: "#B8B3AE" }}>Figma</span> to{" "}
               <span style={{ color: "#3DFF6E" }}>Claude Code</span>{" "}
-              — not a replacement,{" "}
+              not a replacement,{" "}
               <span style={{ color: "#7A7570" }}>but a co-evolution.</span>
             </>
           )}
