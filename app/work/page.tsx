@@ -3,44 +3,71 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Link from "next/link";
+import { useLang, Lang } from "@/lib/lang";
 
-const cases = [
-  {
-    index: "01",
-    slug: "/work/so5",
-    title: "SO5 Intelligence Hub",
-    subtitle: "Intelligence Hub Platform",
-    category: "Product Design · Enterprise",
-    client: "YEB",
-    year: "2024",
-    tags: ["Design System", "Enterprise", "Legacy Migration", "B2B", "Commodity Trading"],
-    summary: "From green screen to design system. Transforming a legacy commodity trading platform into a modern, scalable enterprise experience.",
-    tension: "Expert users with entrenched mental models vs. a business need for scalable, modern infrastructure.",
-    problem: "The SO5 platform carried years of accumulated complexity. Expert commodity traders and agricultural analysts navigated dense, unintuitive interfaces derived from AS/400 legacy systems — creating critical bottlenecks in time-sensitive market decisions. High cognitive load, lack of visual hierarchy, and fragmented workflows made the system intimidating for new users and inefficient for seasoned ones.",
-    constraints: [
-      { label: "Legacy Tech Debt", detail: "Incremental redesign required — couldn't break existing production flows." },
-      { label: "Expert User Base", detail: "High resistance to change from seasoned users with muscle memory." },
-      { label: "Parallel Delivery", detail: "Design system + screen delivery simultaneously under tight timelines." },
-    ],
-    approach: "A systematic redesign from the ground up. Role-based interfaces so analysts see data and managers see strategy. Transparent processing to transform data chaos into trusted intelligence. Drag-and-drop prioritization and high-contrast displays built for volatile market decisions.",
-    pillars: [
-      { num: "01", title: "Transparent Processing", desc: "Real-time visibility of all processing engines and data sources — turning data chaos into trusted intelligence." },
-      { num: "02", title: "Intelligent Content Automation", desc: "Documents, videos, newsletters, and market analyses generated from a single data source. No more tool switching." },
-      { num: "03", title: "Advanced Calculation Engine", desc: "Real-time computation feedback, performance monitoring, and visible calculation queues for agricultural pricing models." },
-      { num: "04", title: "Complete User Independence", desc: "Users control their entire workflow — from data prioritization to content generation — without IT dependency." },
-    ],
-    results: [
-      "Zero IT dependency for daily operations",
-      "Onboarding new clients independently",
-      "Design system scalable across all modules",
-      "Expert users adopted new flows without resistance",
-    ],
-    color: "#3DFF6E",
-  },
-];
+function getCases(lang: Lang) {
+  return [
+    {
+      index: "01",
+      slug: "/work/so5",
+      title: "SO5 Intelligence Hub",
+      subtitle: lang === "pt" ? "Intelligence Hub Platform" : "Intelligence Hub Platform",
+      category: lang === "pt" ? "Product Design · Enterprise" : "Product Design · Enterprise",
+      client: "YEB",
+      year: "2024",
+      tags: ["Design System", "Enterprise", "Legacy Migration", "B2B", "Commodity Trading"],
+      summary: lang === "pt"
+        ? "Do green screen ao design system. Transformando uma plataforma legada de trading de commodities em uma experiência enterprise moderna e escalável."
+        : "From green screen to design system. Transforming a legacy commodity trading platform into a modern, scalable enterprise experience.",
+      tension: lang === "pt"
+        ? "Usuários especialistas com modelos mentais arraigados vs. necessidade do negócio de uma infraestrutura moderna e escalável."
+        : "Expert users with entrenched mental models vs. a business need for scalable, modern infrastructure.",
+      problem: lang === "pt"
+        ? "A plataforma SO5 carregava anos de complexidade acumulada. Traders de commodities e analistas agrícolas navegavam em interfaces densas e pouco intuitivas, herdadas de sistemas legados AS/400 — criando gargalos críticos em decisões de mercado sensíveis ao tempo. Alta carga cognitiva, falta de hierarquia visual e fluxos fragmentados tornavam o sistema intimidador para novos usuários e ineficiente para os experientes."
+        : "The SO5 platform carried years of accumulated complexity. Expert commodity traders and agricultural analysts navigated dense, unintuitive interfaces derived from AS/400 legacy systems — creating critical bottlenecks in time-sensitive market decisions. High cognitive load, lack of visual hierarchy, and fragmented workflows made the system intimidating for new users and inefficient for seasoned ones.",
+      constraints: lang === "pt" ? [
+        { label: "Dívida Técnica Legada", detail: "Redesign incremental obrigatório — não podíamos quebrar fluxos de produção existentes." },
+        { label: "Base de Usuários Especialistas", detail: "Alta resistência à mudança de usuários experientes com memória muscular consolidada." },
+        { label: "Entrega Paralela", detail: "Design system + entrega de telas simultaneamente dentro de prazos apertados." },
+      ] : [
+        { label: "Legacy Tech Debt", detail: "Incremental redesign required — couldn't break existing production flows." },
+        { label: "Expert User Base", detail: "High resistance to change from seasoned users with muscle memory." },
+        { label: "Parallel Delivery", detail: "Design system + screen delivery simultaneously under tight timelines." },
+      ],
+      approach: lang === "pt"
+        ? "Um redesign sistemático do zero. Interfaces baseadas em função para que analistas vejam dados e gestores vejam estratégia. Processamento transparente para transformar caos de dados em inteligência confiável. Priorização drag-and-drop e displays de alto contraste construídos para decisões em mercados voláteis."
+        : "A systematic redesign from the ground up. Role-based interfaces so analysts see data and managers see strategy. Transparent processing to transform data chaos into trusted intelligence. Drag-and-drop prioritization and high-contrast displays built for volatile market decisions.",
+      pillars: lang === "pt" ? [
+        { num: "01", title: "Processamento Transparente", desc: "Visibilidade em tempo real de todos os engines de processamento e fontes de dados — transformando caos em inteligência confiável." },
+        { num: "02", title: "Automação Inteligente de Conteúdo", desc: "Documentos, vídeos, newsletters e análises de mercado gerados de uma única fonte de dados. Sem troca de ferramentas." },
+        { num: "03", title: "Engine de Cálculo Avançado", desc: "Feedback de computação em tempo real, monitoramento de performance e filas de cálculo visíveis para modelos de precificação agrícola." },
+        { num: "04", title: "Independência Total do Usuário", desc: "Usuários controlam todo o fluxo de trabalho — da priorização de dados à geração de conteúdo — sem dependência de TI." },
+      ] : [
+        { num: "01", title: "Transparent Processing", desc: "Real-time visibility of all processing engines and data sources — turning data chaos into trusted intelligence." },
+        { num: "02", title: "Intelligent Content Automation", desc: "Documents, videos, newsletters, and market analyses generated from a single data source. No more tool switching." },
+        { num: "03", title: "Advanced Calculation Engine", desc: "Real-time computation feedback, performance monitoring, and visible calculation queues for agricultural pricing models." },
+        { num: "04", title: "Complete User Independence", desc: "Users control their entire workflow — from data prioritization to content generation — without IT dependency." },
+      ],
+      results: lang === "pt" ? [
+        "Zero dependência de TI nas operações diárias",
+        "Onboarding de novos clientes de forma independente",
+        "Design system escalável em todos os módulos",
+        "Usuários especialistas adotaram novos fluxos sem resistência",
+      ] : [
+        "Zero IT dependency for daily operations",
+        "Onboarding new clients independently",
+        "Design system scalable across all modules",
+        "Expert users adopted new flows without resistance",
+      ],
+      color: "#3DFF6E",
+    },
+  ];
+}
 
 export default function Work() {
   const [open, setOpen] = useState<number | null>(null);
+  const { lang } = useLang();
+  const cases = getCases(lang);
 
   return (
     <main className="min-h-screen pt-24" style={{ backgroundColor: "#0A0908" }}>
@@ -69,7 +96,7 @@ export default function Work() {
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
           >
-            {cases.length} Projects
+            {cases.length} {lang === "pt" ? "Projetos" : "Projects"}
           </motion.span>
         </div>
       </section>
@@ -166,7 +193,7 @@ export default function Work() {
                           className="block mb-1 uppercase"
                           style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: c.color }}
                         >
-                          Core Tension
+                          {lang === "pt" ? "Tensão Central" : "Core Tension"}
                         </span>
                         <p className="text-sm italic" style={{ color: "#B8B3AE" }}>{c.tension}</p>
                       </div>
@@ -175,11 +202,11 @@ export default function Work() {
 
                   <div className="work-panel-body work-indent pb-10 pr-4 md:pr-8 grid grid-cols-3 gap-12" style={{ paddingLeft: "5rem" }}>
                     <div>
-                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Problem</span>
+                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>{lang === "pt" ? "Problema" : "Problem"}</span>
                       <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{c.problem}</p>
                     </div>
                     <div>
-                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Approach</span>
+                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>{lang === "pt" ? "Abordagem" : "Approach"}</span>
                       <p className="text-sm leading-relaxed" style={{ color: "#B8B3AE" }}>{c.approach}</p>
                       {c.constraints.length > 0 && (
                         <div className="mt-6 space-y-3">
@@ -193,7 +220,7 @@ export default function Work() {
                       )}
                     </div>
                     <div>
-                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Results</span>
+                      <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>{lang === "pt" ? "Resultados" : "Results"}</span>
                       <ul className="space-y-2">
                         {c.results.map((r, j) => (
                           <li key={j} className="text-sm font-medium" style={{ color: c.color, fontFamily: "var(--font-space)" }}>{r}</li>
@@ -204,7 +231,7 @@ export default function Work() {
 
                   {c.pillars.length > 0 && (
                     <div className="work-indent pr-4 md:pr-8 pb-12" style={{ paddingLeft: "5rem" }}>
-                      <span className="block mb-6 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>Design Pillars</span>
+                      <span className="block mb-6 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.35em", color: "#7A7570" }}>{lang === "pt" ? "Pilares de Design" : "Design Pillars"}</span>
                       <div className="work-pillars grid grid-cols-4 gap-0">
                         {c.pillars.map((p, j) => (
                           <div

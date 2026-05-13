@@ -5,19 +5,58 @@ import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import VisionSwitcher from "./VisionSwitcher";
-
-const links = [
-  { href: "/", label: "Home", en: "Home" },
-  { href: "/work", label: "Case", en: "Case" },
-  { href: "/about", label: "Sobre", en: "Sobre" },
-];
+import { useLang } from "@/lib/lang";
 
 const SCAN_DURATION = 0.35;
+
+function LangToggle() {
+  const { lang, toggle } = useLang();
+  return (
+    <button
+      onClick={toggle}
+      style={{ cursor: "none", display: "flex", alignItems: "center", gap: "0.35rem", background: "none", border: "none", padding: 0 }}
+      aria-label="Toggle language"
+    >
+      <span
+        style={{
+          fontFamily: "var(--font-space)",
+          fontSize: "0.6rem",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: lang === "pt" ? "#F2EDE8" : "#7A7570",
+          transition: "color 0.2s",
+        }}
+      >
+        PT
+      </span>
+      <span style={{ color: "#7A7570", fontSize: "0.6rem", fontFamily: "var(--font-space)" }}>·</span>
+      <span
+        style={{
+          fontFamily: "var(--font-space)",
+          fontSize: "0.6rem",
+          letterSpacing: "0.25em",
+          textTransform: "uppercase",
+          color: lang === "en" ? "#F2EDE8" : "#7A7570",
+          transition: "color 0.2s",
+        }}
+      >
+        EN
+      </span>
+    </button>
+  );
+}
 
 export default function Nav() {
   const pathname = usePathname();
   const [hovered, setHovered] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const { lang } = useLang();
+
+  const links = [
+    { href: "/", label: { pt: "Home", en: "Home" } },
+    { href: "/work", label: { pt: "Case", en: "Case" } },
+    { href: "/about", label: { pt: "Sobre", en: "About" } },
+  ];
 
   return (
     <>
@@ -64,7 +103,7 @@ export default function Nav() {
 
         {/* Desktop links */}
         <div className="hidden md:flex items-center gap-10">
-          {links.map(({ href, en }) => {
+          {links.map(({ href, label }) => {
             const active = pathname === href;
             return (
               <Link key={href} href={href} className="relative group">
@@ -76,7 +115,7 @@ export default function Nav() {
                     color: active ? "#3DFF6E" : "#7A7570",
                   }}
                 >
-                  {en}
+                  {label[lang]}
                 </span>
                 {active && (
                   <motion.div
@@ -89,6 +128,7 @@ export default function Nav() {
               </Link>
             );
           })}
+          <LangToggle />
           <VisionSwitcher />
         </div>
 
@@ -128,7 +168,7 @@ export default function Nav() {
               alignItems: "center", justifyContent: "center", gap: "2.5rem",
             }}
           >
-            {links.map(({ href, en }, i) => (
+            {links.map(({ href, label }, i) => (
               <motion.div
                 key={href}
                 initial={{ opacity: 0, y: 20 }}
@@ -148,11 +188,12 @@ export default function Nav() {
                     textDecoration: "none",
                   }}
                 >
-                  {en}
+                  {label[lang]}
                 </Link>
               </motion.div>
             ))}
-            <div className="mt-4">
+            <div className="mt-4 flex items-center gap-6">
+              <LangToggle />
               <VisionSwitcher />
             </div>
           </motion.div>

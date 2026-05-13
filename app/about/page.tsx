@@ -2,6 +2,7 @@
 
 import { motion, useMotionValue, useAnimationFrame } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
+import { useLang } from "@/lib/lang";
 
 const P = 3; // pixel size
 const HAND_GRID = [
@@ -30,10 +31,11 @@ function PixelHand({ color = "#F2EDE8" }: { color?: string }) {
   );
 }
 
-const BALL = 180; // diameter px
+const BALL = 180;
 const SPEED = 2.8;
 
 function PinballPhoto() {
+  const { lang } = useLang();
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -86,7 +88,6 @@ function PinballPhoto() {
   return (
     <div ref={containerRef} style={{ position: "relative", width: "100%", height: "100%" }}>
       <motion.div style={{ position: "absolute", x, y }}>
-        {/* Ping rings — visíveis só no estado idle */}
         {!isActive && [0, 1, 2].map((i) => (
           <motion.span
             key={i}
@@ -108,7 +109,6 @@ function PinballPhoto() {
             }}
           />
         ))}
-        {/* Tooltip */}
         <motion.div
           style={{
             position: "absolute",
@@ -129,7 +129,9 @@ function PinballPhoto() {
           animate={{ opacity: hovered ? 1 : 0, y: hovered ? 0 : 6 }}
           transition={{ duration: 0.2, ease: "easeOut" }}
         >
-          {isActive ? "[ PARAR ]" : "[ ANIMAR ]"}
+          {isActive
+            ? (lang === "pt" ? "[ PARAR ]" : "[ STOP ]")
+            : (lang === "pt" ? "[ ANIMAR ]" : "[ ANIMATE ]")}
         </motion.div>
 
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -157,20 +159,150 @@ function PinballPhoto() {
       }}>
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src="/hand.png" alt="" style={{ width: 150, height: 150, objectFit: "contain", display: "inline-block", verticalAlign: "middle", filter: "invert(1) brightness(0.45)", marginRight: -20 }} />
-        Oi, eu sou a Sabrina
+        {lang === "pt" ? "Oi, eu sou a Sabrina" : "Hi, I'm Sabrina"}
       </span>
     </div>
   );
 }
 
-const skills = [
-  { area: "Research & Strategy", items: ["User Research", "Jobs-to-be-done", "Competitive Analysis", "Trend Mapping"] },
-  { area: "Design & Systems", items: ["UX Architecture", "UI Design", "Design Systems", "Prototyping"] },
-  { area: "Tools", items: ["Figma", "Maze", "Hotjar", "Notion", "Jira"] },
-  { area: "Context", items: ["B2B SaaS", "Fintech", "Startups", "Enterprise"] },
-];
-
 export default function About() {
+  const { lang } = useLang();
+
+  const skills = [
+    { area: lang === "pt" ? "Research & Estratégia" : "Research & Strategy", items: ["User Research", "Jobs-to-be-done", "Competitive Analysis", "Trend Mapping"] },
+    { area: lang === "pt" ? "Design & Sistemas" : "Design & Systems", items: ["UX Architecture", "UI Design", "Design Systems", "Prototyping"] },
+    { area: "Tools", items: ["Figma", "Maze", "Hotjar", "Notion", "Jira"] },
+    { area: "Context", items: ["B2B SaaS", "Fintech", "Startups", "Enterprise"] },
+  ];
+
+  const values = lang === "pt" ? [
+    {
+      icon: "🎯",
+      title: "Clareza",
+      desc: "Design deve fazer a complexidade parecer simples. Acredito em criar experiências que comunicam sem esforço, guiando pessoas com intenção e precisão.",
+    },
+    {
+      icon: "✦",
+      title: "Craft",
+      desc: "Cada pixel, movimento e palavra importa. Valorizo a profundidade do detalhe — a harmonia entre função e beleza que transforma interfaces em experiências.",
+    },
+    {
+      icon: "⬆",
+      title: "Evolução",
+      desc: "Design nunca está terminado. Abraço iteração e curiosidade como ferramentas de progresso — refinando ideias até que pareçam inevitáveis.",
+    },
+  ] : [
+    {
+      icon: "🎯",
+      title: "Clarity",
+      desc: "Design should make complexity feel simple. I believe in creating experiences that communicate effortlessly, guiding people with intention and precision.",
+    },
+    {
+      icon: "✦",
+      title: "Craft",
+      desc: "Every pixel, motion, and word matters. I value depth of detail — the harmony between function and beauty that transforms interfaces into experiences.",
+    },
+    {
+      icon: "⬆",
+      title: "Evolution",
+      desc: "Design is never finished. I embrace iteration and curiosity as tools of progress — refining ideas until they feel inevitable.",
+    },
+  ];
+
+  const expCards = lang === "pt" ? [
+    {
+      icon: "✦",
+      period: "Sua empresa, a seguir",
+      role: "",
+      desc: "Vamos construir o próximo capítulo.\n\nTrago clareza de design, pensamento sistêmico e colaboração multifuncional para transformar complexidade em crescimento escalável e centrado nas pessoas.",
+      accent: "#3DFF6E",
+    },
+    {
+      icon: "💻",
+      period: "Presente → 2025",
+      role: "Product Designer · YEB Market Intelligence",
+      desc: "Liderando a estratégia de experiência para plataformas de inteligência de dados. Estruturo workflows, frameworks de research e design systems que tornam a informação mais intuitiva, acionável e humana — conectando design, dados e decisão em escala enterprise.",
+      accent: null,
+    },
+    {
+      icon: "🛍️",
+      period: "2024 → 2021",
+      role: "Product Designer · K2 Solutions – Grupo Carrefour",
+      desc: "Atuei na transformação digital do Carrefour lançando 8 produtos B2B enterprise e criando um Design System em Figma para escalar a colaboração. Aprendi a alinhar design com impacto de negócio, orquestrar times e manter precisão em ecossistemas complexos.",
+      accent: null,
+    },
+  ] : [
+    {
+      icon: "✦",
+      period: "Your company, next",
+      role: "",
+      desc: "Let's build the next chapter.\n\nI bring design clarity, systems thinking, and cross-functional collaboration to turn complexity into scalable, people-centered growth.",
+      accent: "#3DFF6E",
+    },
+    {
+      icon: "💻",
+      period: "Present → 2025",
+      role: "Product Designer · YEB Market Intelligence",
+      desc: "Leading experience strategy for data intelligence platforms. I structure workflows, research frameworks, and design systems that make information more intuitive, actionable, and human — connecting design, data, and decision-making at enterprise scale.",
+      accent: null,
+    },
+    {
+      icon: "🛍️",
+      period: "2024 → 2021",
+      role: "Product Designer · K2 Solutions – Grupo Carrefour",
+      desc: "Led digital transformation at Carrefour launching 8 B2B enterprise products and building a Figma Design System to scale collaboration. I learned to align design with business impact, orchestrate teams, and maintain precision in complex ecosystems.",
+      accent: null,
+    },
+  ];
+
+  const expCards2 = lang === "pt" ? [
+    {
+      icon: "💳",
+      period: "2023 → 2021",
+      role: "UI/UX Designer · Mooven Consulting",
+      desc: "Na Mooven, desenhei interfaces seguras e eficientes para sistemas financeiros e enterprise, incluindo o CIP (Sistema de Pagamentos Interbancários Brasileiro). Estabeleci frameworks de documentação que melhoraram a comunicação com stakeholders e aceleraram a entrega em projetos de transformação digital.",
+    },
+    {
+      icon: "🏛️",
+      period: "2021",
+      role: "UX/UI Designer · Banco do Brasil",
+      desc: "Contribuí para a revolução dos pagamentos digitais no Brasil desenhando experiências centradas no usuário para o PIX — o primeiro sistema de transferência instantânea do país, usado por milhões diariamente. Meu trabalho focou em research e clareza, simplificando dados complexos e garantindo acessibilidade para um público nacional.",
+    },
+    {
+      icon: "🍴",
+      period: "2020 → 2019",
+      role: "UX/UI Designer · Sapore",
+      desc: "Desenhei produtos digitais que conectaram tecnologia e design de serviço em operações alimentares de grande escala. Liderei um sistema de segurança com IA para detecção de EPIs e criei uma plataforma digital de pedidos que melhorou eficiência, segurança e experiência em ambientes do dia a dia.",
+    },
+  ] : [
+    {
+      icon: "💳",
+      period: "2023 → 2021",
+      role: "UI/UX Designer · Mooven Consulting",
+      desc: "At Mooven, I designed secure and efficient interfaces for financial and enterprise systems, including CIP (Brazilian Interbank Payment System). I established documentation frameworks that improved stakeholder communication and accelerated delivery in digital transformation projects.",
+    },
+    {
+      icon: "🏛️",
+      period: "2021",
+      role: "UX/UI Designer · Banco do Brasil",
+      desc: "Contributed to Brazil's digital payment revolution by designing user-centered experiences for PIX — the country's first instant transfer system, used by millions daily. My work focused on research and clarity, simplifying complex data and ensuring accessibility for a nationwide audience.",
+    },
+    {
+      icon: "🍴",
+      period: "2020 → 2019",
+      role: "UX/UI Designer · Sapore",
+      desc: "Designed digital products connecting technology and service design in large-scale food operations. Led an AI-powered safety system for PPE detection and created a digital ordering platform that improved efficiency, safety, and experience in everyday environments.",
+    },
+  ];
+
+  const awards = lang === "pt" ? [
+    { year: "2019", title: "Vencedora", sub: "Ironhack Hackathon" },
+    { year: "2019", title: "3º Lugar — TechStars", sub: "Startup Weekend Fashion Tech" },
+  ] : [
+    { year: "2019", title: "Winner", sub: "Ironhack Hackathon" },
+    { year: "2019", title: "3rd Place — TechStars", sub: "Startup Weekend Fashion Tech" },
+  ];
+
   return (
     <main className="about-main-px min-h-screen pt-24" style={{ backgroundColor: "#0A0908", paddingLeft: 68, paddingRight: 68 }}>
 
@@ -189,7 +321,7 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0, 0, 1] }}
         >
-          About
+          {lang === "pt" ? "Sobre" : "About"}
         </motion.h1>
       </section>
 
@@ -209,12 +341,22 @@ export default function About() {
             transition={{ delay: 0.35, duration: 0.7, ease: [0.25, 0, 0, 1] }}
           >
             <p style={{ fontFamily: "var(--font-space)", fontSize: "clamp(1.2rem, 1.8vw, 1.6rem)", fontWeight: 700, color: "#F2EDE8", lineHeight: 1.2, marginBottom: "1.25rem" }}>
-              O que me move
+              {lang === "pt" ? "O que me move" : "What drives me"}
             </p>
             <p style={{ fontFamily: "var(--font-geist)", fontSize: "0.95rem", color: "#B8B3AE", lineHeight: 1.8 }}>
-              Meu trabalho vive na interseção entre empatia e estratégia. Sou infinitamente curiosa sobre
-              o que move as pessoas e o que realmente impulsiona o crescimento. Ao unir compreensão profunda
-              do usuário com visão de negócio, crio experiências que<span style={{ color: "#3DFF6E" }}> conectam significado com resultado.</span>
+              {lang === "pt" ? (
+                <>
+                  Meu trabalho vive na interseção entre empatia e estratégia. Sou infinitamente curiosa sobre
+                  o que move as pessoas e o que realmente impulsiona o crescimento. Ao unir compreensão profunda
+                  do usuário com visão de negócio, crio experiências que<span style={{ color: "#3DFF6E" }}> conectam significado com resultado.</span>
+                </>
+              ) : (
+                <>
+                  My work lives at the intersection of empathy and strategy. I'm infinitely curious about
+                  what moves people and what truly drives growth. By combining deep user understanding
+                  with business vision, I create experiences that<span style={{ color: "#3DFF6E" }}> connect meaning with outcome.</span>
+                </>
+              )}
             </p>
           </motion.div>
       </section>
@@ -228,14 +370,11 @@ export default function About() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          Conquistas &amp; Prêmios
+          {lang === "pt" ? "Conquistas & Prêmios" : "Achievements & Awards"}
         </motion.span>
 
         <div className="flex flex-col gap-5" style={{ maxWidth: "600px", margin: "0 auto" }}>
-          {[
-            { year: "2019", title: "Vencedora", sub: "Ironhack Hackathon" },
-            { year: "2019", title: "3º Lugar — TechStars", sub: "Startup Weekend Fashion Tech" },
-          ].map((item, i) => (
+          {awards.map((item, i) => (
             <motion.div
               key={i}
               style={{
@@ -275,27 +414,11 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          O que eu valorizo
+          {lang === "pt" ? "O que eu valorizo" : "What I value"}
         </motion.p>
 
         <div className="grid-values grid grid-cols-3 gap-6">
-          {[
-            {
-              icon: "🎯",
-              title: "Clareza",
-              desc: "Design deve fazer a complexidade parecer simples. Acredito em criar experiências que comunicam sem esforço, guiando pessoas com intenção e precisão.",
-            },
-            {
-              icon: "✦",
-              title: "Craft",
-              desc: "Cada pixel, movimento e palavra importa. Valorizo a profundidade do detalhe — a harmonia entre função e beleza que transforma interfaces em experiências.",
-            },
-            {
-              icon: "⬆",
-              title: "Evolução",
-              desc: "Design nunca está terminado. Abraço iteração e curiosidade como ferramentas de progresso — refinando ideias até que pareçam inevitáveis.",
-            },
-          ].map((item, i) => (
+          {values.map((item, i) => (
             <motion.div
               key={i}
               style={{
@@ -350,7 +473,7 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            Experiência Profissional
+            {lang === "pt" ? "Experiência Profissional" : "Professional Experience"}
           </motion.p>
           <motion.p
             className="col-span-7"
@@ -360,35 +483,15 @@ export default function About() {
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
           >
-            Construí uma carreira multidisciplinar enraizada na curiosidade, no pensamento estratégico e na busca incansável por clareza — usando o design como ponte entre dados, tecnologia e emoção.
+            {lang === "pt"
+              ? "Construí uma carreira multidisciplinar enraizada na curiosidade, no pensamento estratégico e na busca incansável por clareza — usando o design como ponte entre dados, tecnologia e emoção."
+              : "I've built a multidisciplinary career rooted in curiosity, strategic thinking, and the relentless pursuit of clarity — using design as a bridge between data, technology, and emotion."}
           </motion.p>
         </div>
 
         {/* Cards de experiência */}
         <div className="grid-exp grid grid-cols-3 gap-6">
-          {[
-            {
-              icon: "✦",
-              period: "Sua empresa, a seguir",
-              role: "",
-              desc: "Vamos construir o próximo capítulo.\n\nTrago clareza de design, pensamento sistêmico e colaboração multifuncional para transformar complexidade em crescimento escalável e centrado nas pessoas.",
-              accent: "#3DFF6E",
-            },
-            {
-              icon: "💻",
-              period: "Presente → 2025",
-              role: "Product Designer · YEB Market Intelligence",
-              desc: "Liderando a estratégia de experiência para plataformas de inteligência de dados. Estruturo workflows, frameworks de research e design systems que tornam a informação mais intuitiva, acionável e humana — conectando design, dados e decisão em escala enterprise.",
-              accent: null,
-            },
-            {
-              icon: "🛍️",
-              period: "2024 → 2021",
-              role: "Product Designer · K2 Solutions – Grupo Carrefour",
-              desc: "Atuei na transformação digital do Carrefour lançando 8 produtos B2B enterprise e criando um Design System em Figma para escalar a colaboração. Aprendi a alinhar design com impacto de negócio, orquestrar times e manter precisão em ecossistemas complexos.",
-              accent: null,
-            },
-          ].map((item, i) => (
+          {expCards.map((item, i) => (
             <motion.div
               key={i}
               style={{
@@ -425,26 +528,7 @@ export default function About() {
 
         {/* Segunda linha */}
         <div className="grid grid-cols-3 gap-6 mt-6">
-          {[
-            {
-              icon: "💳",
-              period: "2023 → 2021",
-              role: "UI/UX Designer · Mooven Consulting",
-              desc: "Na Mooven, desenhei interfaces seguras e eficientes para sistemas financeiros e enterprise, incluindo o CIP (Sistema de Pagamentos Interbancários Brasileiro). Estabeleci frameworks de documentação que melhoraram a comunicação com stakeholders e aceleraram a entrega em projetos de transformação digital.",
-            },
-            {
-              icon: "🏛️",
-              period: "2021",
-              role: "UX/UI Designer · Banco do Brasil",
-              desc: "Contribuí para a revolução dos pagamentos digitais no Brasil desenhando experiências centradas no usuário para o PIX — o primeiro sistema de transferência instantânea do país, usado por milhões diariamente. Meu trabalho focou em research e clareza, simplificando dados complexos e garantindo acessibilidade para um público nacional.",
-            },
-            {
-              icon: "🍴",
-              period: "2020 → 2019",
-              role: "UX/UI Designer · Sapore",
-              desc: "Desenhei produtos digitais que conectaram tecnologia e design de serviço em operações alimentares de grande escala. Liderei um sistema de segurança com IA para detecção de EPIs e criei uma plataforma digital de pedidos que melhorou eficiência, segurança e experiência em ambientes do dia a dia.",
-            },
-          ].map((item, i) => (
+          {expCards2.map((item, i) => (
             <motion.div
               key={i}
               style={{

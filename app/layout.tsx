@@ -7,6 +7,7 @@ import Cursor from "@/components/Cursor";
 import Footer from "@/components/Footer";
 import { VisionProvider } from "@/components/VisionProvider";
 import VisionFilters from "@/components/VisionFilters";
+import { LangProvider } from "@/lib/lang";
 
 const geist = Geist({
   variable: "--font-geist",
@@ -40,12 +41,14 @@ export default function RootLayout({
       <body className={`${geist.variable} ${spaceGrotesk.variable} ${pressStart.variable} antialiased`}>
         {/* SVG filter defs for colorblind simulation — must be in DOM */}
         <VisionFilters />
-        <VisionProvider>
-          <Cursor />
-          <Nav />
-          {children}
-          <Footer />
-        </VisionProvider>
+        <LangProvider>
+          <VisionProvider>
+            <Cursor />
+            <Nav />
+            {children}
+            <Footer />
+          </VisionProvider>
+        </LangProvider>
       </body>
     </html>
   );

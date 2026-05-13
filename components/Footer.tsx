@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useLang } from "@/lib/lang";
 import rawDots   from "../public/globe-dots.json";
 import rawFigure from "../public/figure-dots.json";
 
@@ -82,6 +83,7 @@ function burst(particles: Particle[], cx: number, cy: number, color: string, cou
 /* ── Footer ─────────────────────────────────────────────────────── */
 export default function Footer() {
   const [hovered, setHovered] = useState<number | null>(null);
+  const { lang } = useLang();
 
   const canvasRef    = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -481,7 +483,9 @@ export default function Footer() {
         <div>
           <p style={{ fontFamily:"var(--font-space)", fontSize:"clamp(0.75rem, 1.2vw, 1rem)",
             color:"#3DFF6E", letterSpacing:"0.02em", marginBottom:"0.75rem", maxWidth:"420px" }}>
-            Estou sempre aberta para conectar e falar sobre a vida e design.
+            {lang === "pt"
+              ? "Estou sempre aberta para conectar e falar sobre a vida e design."
+              : "I'm always open to connecting and talking about life and design."}
           </p>
           <div style={{ display:"flex", flexDirection:"column", gap:"0.25rem" }}>
             <a href="https://www.linkedin.com/in/salautens/" target="_blank" rel="noopener noreferrer"

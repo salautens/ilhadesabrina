@@ -7,6 +7,7 @@ import { useRef, useState, useCallback } from "react";
 import ChipTrail from "@/components/ChipTrail";
 import GlitchTitle from "@/components/GlitchTitle";
 import HalftoneCanvas from "@/components/HalftoneCanvas";
+import { useLang } from "@/lib/lang";
 
 /* ─── Section label — consistent anatomy across all sections ─── */
 function SectionLabel({ n, text }: { n: string; text: string }) {
@@ -124,6 +125,7 @@ const fadeUp = {
 export default function Home() {
   const containerRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
+  const { lang } = useLang();
 
   return (
     <main ref={containerRef} className="min-h-screen" style={{ backgroundColor: "#0A0908" }}>
@@ -205,14 +207,29 @@ export default function Home() {
               maxWidth: "820px",
             }}
           >
-            Design que{" "}
-            <span style={{ color: "#F2EDE8", fontWeight: 400 }}>
-              &#123;transforma caos em calma&#125;
-            </span>{" "}
-            operacional.{" "}
-            <span style={{ color: "#7A7570" }}>
-              Produtos para humanos que operam em escala.
-            </span>
+            {lang === "pt" ? (
+              <>
+                Design que{" "}
+                <span style={{ color: "#F2EDE8", fontWeight: 400 }}>
+                  &#123;transforma caos em calma&#125;
+                </span>{" "}
+                operacional.{" "}
+                <span style={{ color: "#7A7570" }}>
+                  Produtos para humanos que operam em escala.
+                </span>
+              </>
+            ) : (
+              <>
+                Design that{" "}
+                <span style={{ color: "#F2EDE8", fontWeight: 400 }}>
+                  &#123;transforms chaos into calm&#125;
+                </span>{" "}
+                operationally.{" "}
+                <span style={{ color: "#7A7570" }}>
+                  Products for humans who operate at scale.
+                </span>
+              </>
+            )}
           </p>
 
           {/* Scroll pulse */}
@@ -290,7 +307,7 @@ export default function Home() {
             <img src="/figma-icon.png" alt="Figma" style={{ width: 80, height: 80, objectFit: "contain" }} />
             <div style={{ textAlign: "center" }}>
               <p style={{ fontFamily: "var(--font-space)", fontSize: "0.9rem", fontWeight: 600, color: "#F2EDE8", letterSpacing: "0.05em" }}>Figma</p>
-              <p style={{ fontFamily: "var(--font-space)", fontSize: "0.48rem", letterSpacing: "0.3em", color: "#7A7570", textTransform: "uppercase", marginTop: "0.4rem" }}>Design System · Protótipo · Handoff</p>
+              <p style={{ fontFamily: "var(--font-space)", fontSize: "0.48rem", letterSpacing: "0.3em", color: "#7A7570", textTransform: "uppercase", marginTop: "0.4rem" }}>{lang === "pt" ? "Design System · Protótipo · Handoff" : "Design System · Prototype · Handoff"}</p>
             </div>
           </motion.div>
 
@@ -349,10 +366,21 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ delay: 0.4, duration: 0.8, ease: [0.25, 0, 0, 1] }}
         >
-          Do <span style={{ color: "#B8B3AE" }}>Figma</span> ao{" "}
-          <span style={{ color: "#3DFF6E" }}>Claude Code</span>{" "}
-          não uma substituição,{" "}
-          <span style={{ color: "#7A7570" }}>mas uma coevolução.</span>
+          {lang === "pt" ? (
+            <>
+              Do <span style={{ color: "#B8B3AE" }}>Figma</span> ao{" "}
+              <span style={{ color: "#3DFF6E" }}>Claude Code</span>{" "}
+              não uma substituição,{" "}
+              <span style={{ color: "#7A7570" }}>mas uma coevolução.</span>
+            </>
+          ) : (
+            <>
+              From <span style={{ color: "#B8B3AE" }}>Figma</span> to{" "}
+              <span style={{ color: "#3DFF6E" }}>Claude Code</span>{" "}
+              — not a replacement,{" "}
+              <span style={{ color: "#7A7570" }}>but a co-evolution.</span>
+            </>
+          )}
         </motion.p>
       </section>
 
@@ -409,7 +437,7 @@ export default function Home() {
           borderBottom: "1px solid rgba(255,255,255,0.07)",
         }}
       >
-        <SectionLabel n="05" text="Projetos" />
+        <SectionLabel n="05" text={lang === "pt" ? "Projetos" : "Projects"} />
 
         {/* Asymmetric editorial grid: 62fr / 38fr */}
         <div
@@ -427,7 +455,9 @@ export default function Home() {
               href: "/work/so5",
               tag: "Product Design · YEB",
               title: "SO5 Intelligence Hub",
-              desc: "From green screen to design system. A legacy commodity trading platform rebuilt end-to-end.",
+              desc: lang === "pt"
+                ? "Do green screen ao design system. Uma plataforma legada de trading de commodities reconstruída do zero."
+                : "From green screen to design system. A legacy commodity trading platform rebuilt end-to-end.",
               year: "2024",
               img: "/so5/so5-cover.png",
               accent: "#3DFF6E",
@@ -438,7 +468,9 @@ export default function Home() {
               href: "https://www.behance.net/gallery/160092813/Folheteria-Digital",
               tag: "Digital Publishing · Carrefour",
               title: "Folheteria Digital",
-              desc: "Transformando folhetos impressos em um sistema dinâmico de publicação digital em escala.",
+              desc: lang === "pt"
+                ? "Transformando folhetos impressos em um sistema dinâmico de publicação digital em escala."
+                : "Turning printed flyers into a dynamic digital publishing system at scale.",
               year: "2023",
               img: "/folheteria-cover.png",
               accent: "#FF3FA8",
@@ -500,7 +532,7 @@ export default function Home() {
                             textTransform: "uppercase",
                           }}
                         >
-                          Em breve
+                          {lang === "pt" ? "Em breve" : "Coming soon"}
                         </span>
                       </div>
                     )}
@@ -580,7 +612,7 @@ export default function Home() {
                 textTransform: "uppercase",
               }}
             >
-              Todos os Projetos →
+              {lang === "pt" ? "Todos os Projetos →" : "All Projects →"}
             </span>
           </Link>
         </motion.div>
