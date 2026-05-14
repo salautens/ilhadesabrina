@@ -103,7 +103,7 @@ export default function SO5Case() {
     <main ref={containerRef} className="min-h-screen pt-24" style={{ backgroundColor: "#0A0908" }}>
 
       {/* ── VOLTAR ── */}
-      <div className="px-16 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <div className="px-4 md:px-16 py-6" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <Link href="/work">
           <span className="uppercase transition-colors" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}>
             ← {lang === "pt" ? "Trabalhos" : "Work"}
@@ -112,7 +112,7 @@ export default function SO5Case() {
       </div>
 
       {/* ── HERO ── */}
-      <section className="px-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", position: "relative", overflow: "hidden" }}>
+      <section className="px-4 md:px-16" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)", position: "relative", overflow: "hidden" }}>
         {/* Watermark background text */}
         <div style={{
           position: "absolute", top: "50%", left: "50%",
@@ -128,7 +128,7 @@ export default function SO5Case() {
         </div>
 
         {/* Top labels */}
-        <div className="flex items-center justify-between pt-16 pb-10" style={{ position: "relative", zIndex: 1 }}>
+        <div className="flex items-center justify-between pt-10 md:pt-16 pb-6 md:pb-10" style={{ position: "relative", zIndex: 1 }}>
           <span style={{ fontFamily: "var(--font-space)", fontSize: "0.55rem", letterSpacing: "0.4em", color: "#7A7570", textTransform: "uppercase" }}>
             {lang === "pt" ? "UI/UX · Design de Produto" : "UI/UX · Product Design"}
           </span>
@@ -141,9 +141,9 @@ export default function SO5Case() {
         </div>
 
         {/* Hero grid: title left, cover image right */}
-        <div className="so5-hero-grid grid grid-cols-12 gap-20 items-end pb-20" style={{ position: "relative", zIndex: 1 }}>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-20 items-end pb-12 md:pb-20" style={{ position: "relative", zIndex: 1 }}>
           <motion.div
-            className="so5-col-6 col-span-6 flex flex-col justify-end"
+            className="md:col-span-6 flex flex-col justify-end"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.25, 0, 0, 1] }}
@@ -163,7 +163,7 @@ export default function SO5Case() {
           </motion.div>
 
           <motion.div
-            className="so5-col-6 col-span-6"
+            className="md:col-span-6"
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.9, ease: [0.25, 0, 0, 1] }}
@@ -182,7 +182,7 @@ export default function SO5Case() {
 
         {/* ── STATS BAR ── */}
         <motion.div
-          className="grid grid-cols-4"
+          className="grid grid-cols-2 md:grid-cols-4"
           style={{ borderTop: "1px solid rgba(255,255,255,0.07)", position: "relative", zIndex: 1 }}
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -192,9 +192,10 @@ export default function SO5Case() {
             <div
               key={item.label}
               style={{
-                padding: "2.5rem 0",
-                borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-                paddingLeft: i > 0 ? "2.5rem" : 0,
+                padding: "1.5rem 0",
+                borderLeft: i % 2 !== 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                paddingLeft: i % 2 !== 0 ? "1.5rem" : 0,
+                borderTop: i >= 2 ? "1px solid rgba(255,255,255,0.07)" : "none",
               }}
             >
               <p style={{ fontFamily: "var(--font-space)", fontSize: "clamp(1.2rem, 2vw, 1.8rem)", fontWeight: 700, color: "#F2EDE8", marginBottom: "0.5rem" }}>
@@ -209,11 +210,12 @@ export default function SO5Case() {
       </section>
 
       {/* ── PROBLEMA | ABORDAGEM ── two dashed-border boxes ── */}
-      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <div className="grid grid-cols-2 gap-6">
+      <section className="px-4 md:px-16 py-12 md:py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Box esquerdo — Problema */}
           <motion.div
-            style={{ border: "1px dashed rgba(255,255,255,0.15)", padding: "3rem" }}
+            className="p-6 md:p-12"
+            style={{ border: "1px dashed rgba(255,255,255,0.15)" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -243,7 +245,8 @@ export default function SO5Case() {
 
           {/* Box direito — Abordagem + Tensão */}
           <motion.div
-            style={{ border: "1px dashed rgba(255,255,255,0.15)", padding: "3rem" }}
+            className="p-6 md:p-12"
+            style={{ border: "1px dashed rgba(255,255,255,0.15)" }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -281,7 +284,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── BEFORE/AFTER ── */}
-      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-4 md:px-16 py-12 md:py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <span className="block mb-10 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
           {lang === "pt" ? "Antes & Depois" : "Before & After"}
         </span>
@@ -302,10 +305,10 @@ export default function SO5Case() {
       {/* ── DESIGN PROCESS — TIMELINE DOS PILARES ── */}
       <motion.section
         ref={pillarsRef}
-        className="px-16 py-24 transition-colors duration-1000"
+        className="px-4 md:px-16 py-12 md:py-24 transition-colors duration-1000"
         style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}
       >
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.4em", color: "#7A7570" }}>
             {lang === "pt" ? "Abordagem de Design" : "Design Framework"}
           </span>
@@ -320,14 +323,14 @@ export default function SO5Case() {
 
         {/* Timeline track */}
         <div style={{ position: "relative" }}>
-          {/* Connecting line */}
-          <div style={{
+          {/* Connecting line — desktop only */}
+          <div className="hidden md:block" style={{
             position: "absolute", top: "1rem", left: "calc(10% + 1rem)", right: "calc(10% + 1rem)",
             height: "1px", backgroundColor: "rgba(61,255,110,0.2)",
           }} />
 
-          {/* Phase dots + labels */}
-          <div className="grid grid-cols-5" style={{ marginBottom: "3rem" }}>
+          {/* Phase dots — desktop only */}
+          <div className="hidden md:grid grid-cols-5" style={{ marginBottom: "3rem" }}>
             {pillars.map((p, i) => (
               <div key={p.num} style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                 <motion.div
@@ -352,16 +355,15 @@ export default function SO5Case() {
           </div>
 
           {/* Pillar cards */}
-          <div className="grid grid-cols-5 gap-0">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-0">
             {pillars.map((p, i) => (
               <motion.div
                 key={p.num}
-                style={{
-                  borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-                  paddingLeft: i > 0 ? "2rem" : 0,
-                  paddingRight: "2rem",
-                  paddingTop: "1.5rem",
-                }}
+                className={
+                  i > 0
+                    ? "pr-8 pt-6 border-t border-white/[0.07] md:border-t-0 md:border-l md:border-white/[0.07] md:pl-8"
+                    : "pr-8 pt-2"
+                }
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -380,7 +382,7 @@ export default function SO5Case() {
       </motion.section>
 
       {/* ── ARQUITETURA DE INFORMAÇÃO ── */}
-      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+      <section className="px-4 md:px-16 py-12 md:py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
         <motion.span
           className="block mb-10 uppercase"
           style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}
@@ -415,23 +417,23 @@ export default function SO5Case() {
       </section>
 
       {/* ── TELAS ── */}
-      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <span className="block mb-16 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+      <section className="px-4 md:px-16 py-12 md:py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <span className="block mb-10 md:mb-16 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
           {lang === "pt" ? "Projetado para Performance" : "Designed for Performance"}
         </span>
 
-        <div className="space-y-52">
+        <div className="space-y-20 md:space-y-52">
           {screens.map((s, i) => (
             <motion.div
               key={s.title}
-              className={`so5-hero-grid grid grid-cols-12 gap-20 items-center ${i % 2 === 1 ? "direction-rtl" : ""}`}
+              className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-20 items-center"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, ease: [0.25, 0, 0, 1] }}
             >
               <div
-                className={`so5-col-8 col-span-8 overflow-hidden ${i % 2 === 1 ? "col-start-5 md:order-2 order-1" : "order-1"}`}
+                className={`overflow-hidden md:col-span-8 ${i % 2 === 1 ? "md:col-start-5" : ""}`}
                 style={{ border: "1px solid rgba(255,255,255,0.08)" }}
               >
                 {i === 0 ? (
@@ -443,7 +445,7 @@ export default function SO5Case() {
                 )}
               </div>
 
-              <div className={`so5-col-4 col-span-4 ${i % 2 === 1 ? "col-start-1 md:order-1 order-2" : "order-2"}`}>
+              <div className="md:col-span-4">
                 <span className="block mb-3 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.5rem", letterSpacing: "0.35em", color: "#3DFF6E" }}>
                   {String(i + 1).padStart(2, "0")}
                 </span>
@@ -460,19 +462,20 @@ export default function SO5Case() {
       </section>
 
       {/* ── RESULTADOS — stats bar ── */}
-      <section className="px-16 py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-        <span className="block mb-16 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
+      <section className="px-4 md:px-16 py-12 md:py-24" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <span className="block mb-10 md:mb-16 uppercase" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.4em", color: "#7A7570" }}>
           {lang === "pt" ? "Resultados" : "Results"}
         </span>
-        <div className="grid grid-cols-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+        <div className="grid grid-cols-2 md:grid-cols-4" style={{ borderTop: "1px solid rgba(255,255,255,0.07)", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
           {results.map((r, i) => (
             <motion.div
               key={r.label}
               style={{
-                padding: "3rem 0",
-                borderLeft: i > 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
-                paddingLeft: i > 0 ? "3rem" : 0,
-                paddingRight: "3rem",
+                padding: "1.5rem 0",
+                borderLeft: i % 2 !== 0 ? "1px solid rgba(255,255,255,0.07)" : "none",
+                paddingLeft: i % 2 !== 0 ? "1.5rem" : 0,
+                paddingRight: "1.5rem",
+                borderTop: i >= 2 ? "1px solid rgba(255,255,255,0.07)" : "none",
               }}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -489,7 +492,7 @@ export default function SO5Case() {
       </section>
 
       {/* ── NAV INFERIOR ── */}
-      <section className="px-16 py-32 flex items-center justify-between">
+      <section className="px-4 md:px-16 py-16 md:py-32 flex items-center justify-between">
         <Link href="/work">
           <span className="uppercase transition-colors" style={{ fontFamily: "var(--font-space)", fontSize: "0.6rem", letterSpacing: "0.3em", color: "#7A7570" }}>
             ← {lang === "pt" ? "Todos os trabalhos" : "All work"}
