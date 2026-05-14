@@ -296,8 +296,8 @@ export default function SO5Case() {
           className="border border-white/10 rounded-sm overflow-hidden shadow-2xl"
         >
           <BeforeAfterSlider
-            afterImage="/so5/base-dados.png"
-            beforeImage="/so5/legacy-produtos.png"
+            afterImage="/so5/legacy-produtos.png"
+            beforeImage="/so5/base-dados.png"
           />
         </motion.div>
       </section>
