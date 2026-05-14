@@ -433,15 +433,32 @@ export default function SO5Case() {
               transition={{ duration: 0.7, ease: [0.25, 0, 0, 1] }}
             >
               <div
-                className={`overflow-hidden md:col-span-8 ${i % 2 === 1 ? "md:col-start-5" : ""}`}
-                style={{ border: "1px solid rgba(255,255,255,0.08)" }}
+                className={`md:col-span-8 ${i % 2 === 1 ? "md:col-start-5" : ""}`}
+                style={{ position: "relative" }}
               >
                 {i === 0 ? (
-                  <InteractiveHotspots hotspots={hotspots}>
-                    <Image src={s.src} alt={s.title} width={1400} height={900} className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]" />
-                  </InteractiveHotspots>
+                  <div style={{ position: "relative" }}>
+                    {/* Base: LineUp dashboard */}
+                    <div style={{ border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden" }}>
+                      <Image src={s.src} alt={s.title} width={1400} height={900} className="w-full h-auto block" />
+                    </div>
+                    {/* Layer: Valores Wilsonsons flutuando em cima */}
+                    <div style={{
+                      position: "absolute",
+                      bottom: "-6%",
+                      right: "-4%",
+                      width: "65%",
+                      border: "1px solid rgba(255,255,255,0.15)",
+                      boxShadow: "0 24px 64px rgba(0,0,0,0.7)",
+                      overflow: "hidden",
+                    }}>
+                      <Image src="/so5/base-dados.png" alt="Valores Wilsonsons" width={900} height={580} className="w-full h-auto block" />
+                    </div>
+                  </div>
                 ) : (
-                  <Image src={s.src} alt={s.title} width={1400} height={900} className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]" />
+                  <div style={{ border: "1px solid rgba(255,255,255,0.08)", overflow: "hidden" }}>
+                    <Image src={s.src} alt={s.title} width={1400} height={900} className="w-full h-auto block transition-transform duration-700 hover:scale-[1.02]" />
+                  </div>
                 )}
               </div>
 
