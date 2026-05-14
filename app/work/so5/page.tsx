@@ -26,12 +26,12 @@ function getPillars(lang: Lang) {
 
 function getScreens(lang: Lang) {
   return lang === "pt" ? [
-    { src: "/so5/dashboard-commodities.png", title: "Base de Dados — Commodities Energéticas", desc: "Camada de dados unificada com tickers em tempo real (Câmbio, Brent, Gás, Carvão). Analistas gerenciam dados Nacionais, Internacionais, Importação, Frete e Geral em uma única superfície." },
+    { src: "/so5/dashboard-commodities.png", title: "LineUp — Controle de Embarques", desc: "Sistema de rastreamento marítimo em tempo real. Operadores visualizam total de chegadas, atracamentos e tempo médio de demurrage — com cards por navio mostrando produto, exportador, importador e datas de chegada, atracamento e saída." },
     { src: "/so5/analise-paridade.png", title: "Análise de Paridade", desc: "Calculadora de paridade com toggle diário/semanal. Usuários configuram tipo de cálculo, base e câmbio — e visualizam preço de importação versus média nacional lado a lado em tempo real." },
     { src: "/so5/motor-grafico.png", title: "Motor de Gráfico", desc: "Motor gráfico sob demanda. De matriz de risco a séries temporais — usuários constroem visualizações diretamente dos seus modelos de dados, configuradas em tempo real." },
     { src: "/so5/base-dados.png", title: "Gerenciamento — Marcas e Produtos", desc: "Gestão de dados internos e externos com toggle card/lista. Cada entrada de marca se conecta a produtos, segmentos, colaboradores e modelos de precificação." },
   ] : [
-    { src: "/so5/dashboard-commodities.png", title: "Database — Energy Commodities", desc: "Unified data layer with real-time tickers (FX, Brent, Gas, Coal). Analysts manage National, International, Import, Freight, and General data in a single surface." },
+    { src: "/so5/dashboard-commodities.png", title: "LineUp — Shipment Tracking", desc: "Real-time maritime tracking system. Operators see total arrivals, dockings, and average demurrage time — with per-vessel cards showing product, exporter, importer, and arrival, docking, and departure dates." },
     { src: "/so5/analise-paridade.png", title: "Parity Analysis", desc: "Parity calculator with daily/weekly toggle. Users configure calculation type, base, and exchange rate — and view import price vs. national average side by side in real time." },
     { src: "/so5/motor-grafico.png", title: "Chart Engine", desc: "On-demand chart engine. From risk matrix to time series — users build visualizations directly from their data models, configured in real time." },
     { src: "/so5/base-dados.png", title: "Management — Brands & Products", desc: "Internal and external data management with card/list toggle. Each brand entry connects to products, segments, collaborators, and pricing models." },
