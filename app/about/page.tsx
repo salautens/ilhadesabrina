@@ -212,45 +212,45 @@ export default function About() {
   const expCards = lang === "pt" ? [
     {
       icon: "✦",
-      period: "Sua empresa, a seguir",
-      role: "",
-      desc: "Vamos construir o próximo capítulo.\n\nTrago clareza de design, pensamento sistêmico e colaboração multifuncional para transformar complexidade em crescimento escalável e centrado nas pessoas.",
+      period: "Out 2025 → Presente",
+      role: "Product Designer · Equifax / Boa Vista",
+      desc: "Liderando UX da migração cloud da plataforma legada AS400/COBOL da Boa Vista — maior banco de dados comercial do Brasil, com 350M+ registros de consumidores e 200M+ consultas mensais. Co-líder da Iris AI Community: programa interno com 44 mulheres avançando letramento em IA em produto, engenharia e operações.",
       accent: "#3DFF6E",
     },
     {
       icon: "💻",
-      period: "Presente → 2025",
-      role: "Product Designer · YEB Market Intelligence",
-      desc: "Liderando a estratégia de experiência para plataformas de inteligência de dados. Estruturo workflows, frameworks de research e design systems que tornam a informação mais intuitiva, acionável e humana — conectando design, dados e decisão em escala enterprise.",
+      period: "Abr 2025 → Dez 2025",
+      role: "Product Designer · Yeb Market Intelligence",
+      desc: "Fundei a função de design de produto em uma empresa de 9 anos liderada por engenheiros. Liderei o redesign completo da plataforma nos setores agrícola, saúde e diesel. Estruturei a operação do zero: Design Thinking, design system Yeb no Figma, e entreguei o módulo CRM Interações — da pesquisa ao handoff.",
       accent: null,
     },
     {
       icon: "🛍️",
-      period: "2024 → 2021",
-      role: "Product Designer · K2 Solutions – Grupo Carrefour",
-      desc: "Atuei na transformação digital do Carrefour lançando 8 produtos B2B enterprise e criando um Design System em Figma para escalar a colaboração. Aprendi a alinhar design com impacto de negócio, orquestrar times e manter precisão em ecossistemas complexos.",
+      period: "Jun 2023 → Mar 2025",
+      role: "Product Designer · Carrefour Group",
+      desc: "Primeira Product Designer do time na maior varejista do Brasil (720+ lojas, 130K+ funcionários, R$108B+ de receita anual). Projetei e entreguei 8 produtos B2B end-to-end. Reduzi a necessidade de headcount em operações de marketing de 40 para 15 pessoas — ganho de eficiência de 62%.",
       accent: null,
     },
   ] : [
     {
       icon: "✦",
-      period: "Your company, next",
-      role: "",
-      desc: "Let's build the next chapter.\n\nI bring design clarity, systems thinking, and cross-functional collaboration to turn complexity into scalable, people-centered growth.",
+      period: "Oct 2025 → Present",
+      role: "Product Designer · Equifax / Boa Vista",
+      desc: "Lead UX for the cloud migration of Boa Vista's legacy AS400/COBOL credit bureau platform — Brazil's largest commercial database, with 350M+ consumer records and 200M+ monthly queries. Co-lead Iris AI Community: internal program of 44 women advancing AI literacy across product, engineering, and operations.",
       accent: "#3DFF6E",
     },
     {
       icon: "💻",
-      period: "Present → 2025",
-      role: "Product Designer · YEB Market Intelligence",
-      desc: "Leading experience strategy for data intelligence platforms. I structure workflows, research frameworks, and design systems that make information more intuitive, actionable, and human — connecting design, data, and decision-making at enterprise scale.",
+      period: "Apr 2025 → Dec 2025",
+      role: "Product Designer · Yeb Market Intelligence",
+      desc: "Founded the product design function at a 9-year-old engineering-led company. Led the platform's full redesign across agricultural, healthcare, and diesel commodity sectors. Architected the design operation from scratch: Design Thinking, Yeb design system in Figma, and shipped the CRM Interações module from research through delivery.",
       accent: null,
     },
     {
       icon: "🛍️",
-      period: "2024 → 2021",
-      role: "Product Designer · K2 Solutions – Grupo Carrefour",
-      desc: "Led digital transformation at Carrefour launching 8 B2B enterprise products and building a Figma Design System to scale collaboration. I learned to align design with business impact, orchestrate teams, and maintain precision in complex ecosystems.",
+      period: "Jun 2023 → Mar 2025",
+      role: "Product Designer · Carrefour Group",
+      desc: "Joined as the first Product Designer within Brazil's largest retailer (720+ stores, 130K+ employees, R$108B+ annual revenue). Designed and shipped 8 B2B products end-to-end. Reduced marketing operations headcount from 40 to 15 — a 62% efficiency gain.",
       accent: null,
     },
   ];
@@ -258,40 +258,28 @@ export default function About() {
   const expCards2 = lang === "pt" ? [
     {
       icon: "💳",
-      period: "2023 → 2021",
-      role: "UI/UX Designer · Mooven Consulting",
-      desc: "Na Mooven, desenhei interfaces seguras e eficientes para sistemas financeiros e enterprise, incluindo o CIP (Sistema de Pagamentos Interbancários Brasileiro). Estabeleci frameworks de documentação que melhoraram a comunicação com stakeholders e aceleraram a entrega em projetos de transformação digital.",
+      period: "Mar 2021 → Mai 2023",
+      role: "UI/UX Designer · Mooven Consulting (CIP)",
+      desc: "Integrei o primeiro time de design da CIP — Câmara Interbancária de Pagamentos do Brasil. Reestruturei o design system completo end-to-end: tokens, componentes e padrões adotados em produtos bancários. Projetei e entreguei 2 portais internos e 3 portais bancários externos.",
     },
     {
       icon: "🏛️",
-      period: "2021",
+      period: "Mar 2020 → Mar 2021",
       role: "UX/UI Designer · Banco do Brasil",
-      desc: "Contribuí para a revolução dos pagamentos digitais no Brasil desenhando experiências centradas no usuário para o PIX — o primeiro sistema de transferência instantânea do país, usado por milhões diariamente. Meu trabalho focou em research e clareza, simplificando dados complexos e garantindo acessibilidade para um público nacional.",
-    },
-    {
-      icon: "🍴",
-      period: "2020 → 2019",
-      role: "UX/UI Designer · Sapore",
-      desc: "Desenhei produtos digitais que conectaram tecnologia e design de serviço em operações alimentares de grande escala. Liderei um sistema de segurança com IA para detecção de EPIs e criei uma plataforma digital de pedidos que melhorou eficiência, segurança e experiência em ambientes do dia a dia.",
+      desc: "Contribuí para o lançamento do PIX — sistema de pagamentos instantâneos usado por 178M+ brasileiros e responsável por 54,7% de todas as transações no Brasil em 2025. Apliquei metodologia centrada no usuário na pesquisa pré-lançamento e conduzi entrevistas com gestores corporativos para mapear fricções de integração.",
     },
   ] : [
     {
       icon: "💳",
-      period: "2023 → 2021",
-      role: "UI/UX Designer · Mooven Consulting",
-      desc: "At Mooven, I designed secure and efficient interfaces for financial and enterprise systems, including CIP (Brazilian Interbank Payment System). I established documentation frameworks that improved stakeholder communication and accelerated delivery in digital transformation projects.",
+      period: "Mar 2021 → May 2023",
+      role: "UI/UX Designer · Mooven Consulting (CIP)",
+      desc: "Joined CIP's first design team — Brazil's national interbank payments clearinghouse. Restructured the entire design system end-to-end: tokens, components, and patterns adopted across banking products. Designed and delivered 2 internal portals and 3 external banking portals.",
     },
     {
       icon: "🏛️",
-      period: "2021",
+      period: "Mar 2020 → Mar 2021",
       role: "UX/UI Designer · Banco do Brasil",
-      desc: "Contributed to Brazil's digital payment revolution by designing user-centered experiences for PIX — the country's first instant transfer system, used by millions daily. My work focused on research and clarity, simplifying complex data and ensuring accessibility for a nationwide audience.",
-    },
-    {
-      icon: "🍴",
-      period: "2020 → 2019",
-      role: "UX/UI Designer · Sapore",
-      desc: "Designed digital products connecting technology and service design in large-scale food operations. Led an AI-powered safety system for PPE detection and created a digital ordering platform that improved efficiency, safety, and experience in everyday environments.",
+      desc: "Contributed to the rollout of PIX — Brazil's instant-payments system now used by 178M+ Brazilians and accounting for 54.7% of all transactions in H2 2025. Applied user-centered methodology during pre-launch research and led conversations with corporate managers to surface integration friction.",
     },
   ];
 
@@ -527,7 +515,7 @@ export default function About() {
         </div>
 
         {/* Segunda linha */}
-        <div className="grid grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-2 gap-6 mt-6">
           {expCards2.map((item, i) => (
             <motion.div
               key={i}
